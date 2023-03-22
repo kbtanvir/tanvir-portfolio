@@ -1,9 +1,6 @@
 import { Box, HStack, Stack, Text, VStack } from "@chakra-ui/react";
 import Image from "next/image";
-import StarsSVG, {
-  MoonSVG,
-  TerrainSVG,
-} from "../../../lib/atoms/SVG/WelcomeSVGs";
+import StarsSVG, { TerrainSVG } from "../../../lib/atoms/SVG/WelcomeSVGs";
 
 export default function WelcomeSection() {
   return (
@@ -12,6 +9,7 @@ export default function WelcomeSection() {
       w="full"
       minH="100vh"
       justifyContent={"center"}
+      position="relative"
     >
       <StarsAnimation />
       <MoonAnimation />
@@ -39,9 +37,9 @@ export default function WelcomeSection() {
   );
 }
 
-function StarsAnimation() {
+export function StarsAnimation() {
   return (
-    <Box position={"fixed"} top="0" left="0" zIndex={0} w="full">
+    <Box position={"absolute"} top="0" left="0" zIndex={0} w="full">
       <Stack position={"absolute"}>
         <StarsSVG />
       </Stack>
@@ -65,9 +63,16 @@ function StarsAnimation() {
 }
 function MoonAnimation() {
   return (
-    <Stack right="0" position={"absolute"} zIndex="1">
-      <Stack position="absolute" right="650px" top="-20" zIndex={1}>
-        <MoonSVG />
+    <Stack right="0" position={"absolute"} zIndex="2">
+      <Stack
+        position="absolute"
+        width={"320px"}
+        height={"320px"}
+        right="550"
+        top="-150"
+        zIndex={2}
+      >
+        <Image src="/welcome/moon.svg" layout="fill" alt="moon" />
       </Stack>
       <Stack
         w="1311px"
@@ -77,17 +82,17 @@ function MoonAnimation() {
         right="150px"
         top="-120px"
         bg="radial-gradient(50% 50% at 50% 50%, rgba(79, 237, 234, 0.228) 0%, rgba(187, 55, 208, 0) 94.27%);"
-      ></Stack>
+      />
     </Stack>
   );
 }
 function MountainAnimation() {
   return (
-    <Stack right="150px" bottom="-60" position={"absolute"} zIndex="2">
+    <Stack right="150px" bottom="20" position={"absolute"} zIndex="2">
       <Image
         src="/welcome/mountain.svg"
-        width={1000}
-        height={1000}
+        width={904}
+        height={382}
         alt="Mountain"
       />
     </Stack>

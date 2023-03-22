@@ -1,6 +1,7 @@
-import Header from "../features/home/Header/Index";
+import AboutSection1 from "../features/home/AboutSection1/Index";
+import AboutSection2 from "../features/home/AboutSection2/Index";
 import WelcomeSection from "../features/home/Welcome/Index";
-import Pointer from "../lib/cuberto/Pointer";
+import WorksSection from "../features/home/WorksSection/Index";
 
 export default function Index() {
   return (
@@ -8,14 +9,9 @@ export default function Index() {
       {/* <Pointer />
       <Header /> */}
       <WelcomeSection />
-      {/* <ItsYourMoneySection />
-      <GifSection />
-      <GetPaidEarlySection />
-      <CustomerServiceSection />
-      <SecuritySection />
-      <PowerfulRoutingSection />
-      <BorderlessAccountSection />
-      <Footer /> */}
+      <AboutSection1 />
+      <WorksSection />
+      <AboutSection2 />
     </>
   );
 }
