@@ -12,7 +12,7 @@ export default function AboutSection2() {
     >
       <Stack zIndex={2}>
         <Image
-          src="/about/about1.png"
+          src="/about/balance.png"
           width={"802px"}
           height={"802px"}
           alt="moon"
@@ -31,15 +31,13 @@ export default function AboutSection2() {
             },
           }}
         >
-          Throughout my career, I`ve devoted considerable effort to transforming
-          designs into applications and websites that are{" "}
-          <span>
-            precise, high-performing, easily accessible, and responsive
-          </span>
-          . I find the entire development process captivating and frequently
-          involve myself in backend work. My passion for ambitious projects and
-          positivity drives me, and I thrive in a collaborative and supportive
-          work environment.
+          I believe that our creations and our craftsmanship reflect our
+          identity and values. That`s why I always aim to deliver Perfection in
+          everything I do. Whether it`s writing clean and scalable code that can
+          stand the test of time, or using the most efficient algorithms to
+          ensure optimal performance because `Speed is king`, I take pride in my
+          work and strive to improve myself constantly. I love what I do and I
+          hope it shows in my results.
         </Text>
       </Stack>
     </HStack>
