@@ -2,7 +2,7 @@ import { Box } from "@chakra-ui/react";
 import gsap from "gsap";
 import MouseFollower from "mouse-follower";
 import { useEffect, useRef } from "react";
-import { cupertinoStore } from "../utils/global.store";
+import { globalStore } from "../utils/global.store";
 import { styles } from "./styles";
 
 export default function Pointer() {
@@ -16,7 +16,7 @@ export default function Pointer() {
     const c = new MouseFollower({
       // container: parentRef.current,
       el: cursorEl.current,
-        speed: .9,
+      speed: 0.9,
       stateDetection: {
         scale: ".scale",
         pointer: ".pointer",
@@ -32,7 +32,7 @@ export default function Pointer() {
       el: cursorEl.current.cloneNode(true) as HTMLDivElement,
     });
 
-    cupertinoStore.setCursor(c);
+    globalStore.setCursor(c);
     return () => {};
   }, []);
   return (

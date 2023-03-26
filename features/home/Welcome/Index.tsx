@@ -1,4 +1,5 @@
 import { Box, HStack, Stack, Text, VStack } from "@chakra-ui/react";
+import { animated, useScroll } from "@react-spring/web";
 import Image from "next/image";
 import StarsSVG, { TerrainSVG } from "../../../lib/atoms/SVG/WelcomeSVGs";
 
@@ -38,63 +39,101 @@ export default function WelcomeSection() {
 }
 
 export function StarsAnimation() {
+  const { scrollYProgress } = useScroll();
   return (
     <Box position={"absolute"} top="0" left="0" zIndex={0} w="full">
-      <Stack position={"absolute"}>
-        <StarsSVG />
-      </Stack>
-      <Stack position={"absolute"} left="50%">
-        <StarsSVG />
-      </Stack>
-      <Stack left="150" top="350" position={"absolute"}>
-        <StarsSVG color="#FFD12D" r={3} />
-      </Stack>
-      <Stack right="130" top="250" position={"absolute"}>
-        <StarsSVG color="#FFD12D" r={3} />
-      </Stack>
-      <Stack left="-330" top="150" position={"absolute"}>
-        <StarsSVG color="#7EFFEA" r={1.2} />
-      </Stack>
-      <Stack right="330" top="150" position={"absolute"}>
-        <StarsSVG color="#7EFFEA" r={1.2} />
-      </Stack>
+      <animated.div
+        style={{
+          translateY: scrollYProgress.to([0, 1], [0, 100]),
+          rotate: scrollYProgress.to([0, 1], [0, -10]),
+        }}
+      >
+        <Stack position={"absolute"}>
+          <StarsSVG />
+        </Stack>
+        <Stack position={"absolute"} right="0">
+          <StarsSVG />
+        </Stack>
+      </animated.div>
+      <animated.div
+        style={{
+          translateY: scrollYProgress.to([0, 1], [0, 400]),
+          rotate: scrollYProgress.to([0, 1], [0, -30]),
+        }}
+      >
+        <Stack left="150" top="350" position={"absolute"}>
+          <StarsSVG color="#FFD12D" r={3} />
+        </Stack>
+        <Stack right="130" top="250" position={"absolute"}>
+          <StarsSVG color="#FFD12D" r={3} />
+        </Stack>
+      </animated.div>
+      <animated.div
+        style={{
+          translateY: scrollYProgress.to([0, 1], [0, 200]),
+          rotate: scrollYProgress.to([0, 1], [0, -50]),
+        }}
+      >
+        <Stack left="-330" top="150" position={"absolute"}>
+          <StarsSVG color="#7EFFEA" r={1.2} />
+        </Stack>
+        <Stack right="330" top="150" position={"absolute"}>
+          <StarsSVG color="#7EFFEA" r={1.2} />
+        </Stack>
+      </animated.div>
     </Box>
   );
 }
 function MoonAnimation() {
+  const { scrollYProgress } = useScroll();
   return (
     <Stack right="0" position={"absolute"} zIndex="2">
-      <Stack
-        position="absolute"
-        width={"320px"}
-        height={"320px"}
-        right="550"
-        top="-150"
-        zIndex={2}
+      <animated.div
+        style={{
+          translateY: scrollYProgress.to([0, 1], [0, 600]),
+          translateX: scrollYProgress.to([0, 1], [0, -600]),
+        }}
       >
-        <Image src="/welcome/moon.svg" layout="fill" alt="moon" />
-      </Stack>
-      <Stack
-        w="1311px"
-        zIndex={0}
-        h="454px"
-        position="absolute"
-        right="150px"
-        top="-120px"
-        bg="radial-gradient(50% 50% at 50% 50%, rgba(79, 237, 234, 0.228) 0%, rgba(187, 55, 208, 0) 94.27%);"
-      />
+        <Stack
+          position="absolute"
+          width={"320px"}
+          height={"320px"}
+          right={`550px`}
+          top="-150"
+          zIndex={2}
+        >
+          <Image src="/welcome/moon.svg" layout="fill" alt="moon" />
+        </Stack>
+
+        <Stack
+          w="1311px"
+          zIndex={0}
+          h="454px"
+          position="absolute"
+          right="150px"
+          top="-120px"
+          bg="radial-gradient(50% 50% at 50% 50%, rgba(79, 237, 234, 0.228) 0%, rgba(187, 55, 208, 0) 94.27%);"
+        />
+      </animated.div>
     </Stack>
   );
 }
 function MountainAnimation() {
+  const { scrollYProgress } = useScroll();
   return (
     <Stack right="150px" bottom="20" position={"absolute"} zIndex="2">
-      <Image
-        src="/welcome/mountain.svg"
-        width={904}
-        height={382}
-        alt="Mountain"
-      />
+      <animated.div
+        style={{
+          translateY: scrollYProgress.to([0, 1], [0, 200]),
+        }}
+      >
+        <Image
+          src="/welcome/mountain.svg"
+          width={904}
+          height={382}
+          alt="Mountain"
+        />
+      </animated.div>
     </Stack>
   );
 }

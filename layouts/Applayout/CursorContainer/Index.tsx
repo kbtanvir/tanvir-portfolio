@@ -1,16 +1,13 @@
 import { Box, Grid, HStack, Text } from "@chakra-ui/react";
 import gsap from "gsap";
 import MouseFollower from "mouse-follower";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { magnetic } from "../../../lib/cuberto/magnetic";
-import {
-  cupertinoStore,
-  useCupertinoStore,
-} from "../../../lib/utils/global.store";
+import { globalStore, useGlobalStore } from "../../../lib/utils/global.store";
 import { styles } from "./styles";
 
 export default function CursorContainer() {
-  const { cursor } = useCupertinoStore();
+  const { cursor } = useGlobalStore();
   const parentRef = useRef<HTMLDivElement>(null);
   const elRef = useRef<HTMLDivElement>(null);
 
@@ -27,7 +24,7 @@ export default function CursorContainer() {
       speed: 1.3,
     });
 
-    cupertinoStore.setCursor(c);
+    globalStore.setCursor(c);
 
     return () => {};
   }, []);

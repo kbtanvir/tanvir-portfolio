@@ -5,10 +5,8 @@ export default function Document() {
     <Html>
       <Head>
         <link rel="shortcut icon" href="/favicon.svg" />
-        <link
-          rel="stylesheet"
-          href="https://unpkg.com/mouse-follower@1/dist/mouse-follower.min.css"
-        ></link>
+        <link rel="stylesheet"
+        href="https://unpkg.com/mouse-follower@1/dist/mouse-follower.min.css" />
       </Head>
       <body>
         <Main />

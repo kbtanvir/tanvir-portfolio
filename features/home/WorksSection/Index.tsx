@@ -1,43 +1,95 @@
 import { Box, HStack, Stack, Text, VStack } from "@chakra-ui/react";
+import { animated, useScroll } from "@react-spring/web";
 
 export default function WorksSection() {
+  const { scrollYProgress } = useScroll();
   return (
     <VStack
       justifyContent={"space-between"}
       position="relative"
       minH="1200px"
-      py="200px"
+      pt="200px"
+      pb="200"
+      w="full"
       bg="linear-gradient(180deg, #212530 0%, #000000 27.6%, #13161C 78.12%, #212530 100%);"
     >
       <HStack position={"relative"} w="full">
-        <Stack position={"absolute"} left="240px">
-          <ProjectItem name="Project Name" imageUrl="" />
-        </Stack>
-        <Stack position={"absolute"} right="0">
+        <animated.div
+          style={{
+            left: scrollYProgress.to([0, 1], [100, 500]),
+            top: 0,
+            position: "absolute",
+            zIndex: 1,
+          }}
+        >
+          <HStack gap="600px">
+            <ProjectItem name="Project Name" imageUrl="" />
+            <ProjectItem name="Project Name" imageUrl="" />
+          </HStack>
+        </animated.div>
+        <animated.div
+          style={{
+            right: scrollYProgress.to([0, 1], [-800, 1300]),
+            top: -200,
+            position: "absolute",
+          }}
+        >
           <CoolText text="Live" />
-        </Stack>
+        </animated.div>
       </HStack>
       <HStack position={"relative"} w="full">
-        <Stack position={"absolute"} left="0">
-          <CoolText text="Dream" />
-        </Stack>
-        <Stack position={"absolute"} right="440">
-          <ProjectItem name="Project Name" imageUrl="" />
-        </Stack>
+        <animated.div
+          style={{
+            left: scrollYProgress.to([0, 1], [-800, 1300]),
+            top: -200,
+            position: "absolute",
+          }}
+        >
+          <CoolText text="To" />
+        </animated.div>
+        <animated.div
+          style={{
+            right: scrollYProgress.to([0, 1], [200, 1000]),
+            top: 0,
+            position: "absolute",
+            zIndex: 1,
+          }}
+        >
+          <HStack gap="600px">
+            <ProjectItem name="Project Name" imageUrl="" />
+            <ProjectItem name="Project Name" imageUrl="" />
+          </HStack>
+        </animated.div>
       </HStack>
       <HStack position={"relative"} w="full">
-        <Stack position={"absolute"} left="440px">
-          <ProjectItem name="Project Name" imageUrl="" />
-        </Stack>
-        <Stack position={"absolute"} right="0">
+        <animated.div
+          style={{
+            left: scrollYProgress.to([0, 1], [-0, 500]),
+            top: 0,
+            position: "absolute",
+            zIndex: 1,
+          }}
+        >
+          <HStack gap="600px">
+            <ProjectItem name="Project Name" imageUrl="" />
+            <ProjectItem name="Project Name" imageUrl="" />
+          </HStack>
+        </animated.div>
+        <animated.div
+          style={{
+            right: scrollYProgress.to([0, 1], [-800, 500]),
+            top: -200,
+            position: "absolute",
+          }}
+        >
           <CoolText text="Work" />
-        </Stack>
+        </animated.div>
       </HStack>
     </VStack>
   );
 }
 
-function CoolText({ text }: { text: string }) {
+export function CoolText({ text, bg }: { text: string; bg?: string }) {
   return (
     <Text
       {...{
@@ -46,9 +98,8 @@ function CoolText({ text }: { text: string }) {
         lineHeight: "365px",
         textTransform: "uppercase",
         background:
-          "linear-gradient(180deg, #2C3344 0%, rgba(44, 51, 68, 0) 100%)",
+          bg || "linear-gradient(180deg, #2C3344 0%, rgba(44, 51, 68, 0) 100%)",
         backgroundClip: "text",
-        textFillColor: "transparent",
       }}
     >
       {text}
@@ -86,8 +137,7 @@ function ProjectItem({ name, imageUrl }: { name: string; imageUrl: string }) {
           height: "276px",
           position: "absolute",
           zIndex: 0,
-          background:
-            "linear-gradient(180deg, #2F293C 0%, rgba(14, 16, 20, 0.39) 100%)",
+          background: "linear-gradient(180deg, #2f293c 0%, rgb(17, 18, 24)0%)",
         }}
       >
         {/* <Image src="/about/about1.png" layout="fill" alt="moon" /> */}

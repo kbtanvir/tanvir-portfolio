@@ -1,18 +1,23 @@
 import { createStore } from "@poly-state/poly-state";
 import { useStore } from "@poly-state/react";
-import { CommonStore } from "../types/store";
+import { GlobalStore } from "../types/store";
 
 import { withDevToolsExtention } from "./withDevtoolExtension";
 // import { demoTM } from '../data/demo'
 
-export const initialStore: CommonStore.Cupertino = {
+export const initialStore: GlobalStore.Animation = {
   cursor: null,
+  scroll: {
+    x: 0,
+    y: 0,
+  },
 };
 
-export const cupertinoStore = createStore(initialStore);
+export const globalStore = createStore(initialStore);
 
-export const useCupertinoStore = () => useStore<CommonStore.Cupertino>(cupertinoStore);
+export const useGlobalStore = () =>
+  useStore<GlobalStore.Animation>(globalStore);
 
 if (process.env.NODE_ENV === "development") {
-  withDevToolsExtention(cupertinoStore, "CUPERTINO");
+  withDevToolsExtention(globalStore, "GOBAL_STORE");
 }

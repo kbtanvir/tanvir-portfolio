@@ -15,12 +15,12 @@ export const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
-export const firebaseApp = initializeApp(firebaseConfig);
-// admin.initializeApp({
-//   credential: admin.credential.applicationDefault(),
-//   databaseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL,
-// });
+// export const firebaseApp = initializeApp(firebaseConfig);
+// // admin.initializeApp({
+// //   credential: admin.credential.applicationDefault(),
+// //   databaseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL,
+// // });
 
-export const auth = getAuth(firebaseApp);
-export const db = getFirestore(firebaseApp);
-export const storage = getStorage(firebaseApp);
+// export const auth = getAuth(firebaseApp);
+// export const db = getFirestore(firebaseApp);
+// export const storage = getStorage(firebaseApp);
