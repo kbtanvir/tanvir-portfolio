@@ -1,7 +1,8 @@
-import { Box, HStack, Stack, Text, VStack } from "@chakra-ui/react";
+import { HStack, Stack, Text, VStack } from "@chakra-ui/react";
 import { animated, useScroll } from "@react-spring/web";
 import Image from "next/image";
-import StarsSVG, { TerrainSVG } from "../../../lib/atoms/SVG/WelcomeSVGs";
+import { TerrainSVG } from "../../../lib/atoms/SVG/WelcomeSVGs";
+import { StarsAnimation } from "./StarsAnimation";
 
 export default function WelcomeSection() {
   return (
@@ -38,52 +39,6 @@ export default function WelcomeSection() {
   );
 }
 
-export function StarsAnimation() {
-  const { scrollYProgress } = useScroll();
-  return (
-    <Box position={"absolute"} top="0" left="0" zIndex={0} w="full">
-      <animated.div
-        style={{
-          translateY: scrollYProgress.to([0, 1], [0, 100]),
-          rotate: scrollYProgress.to([0, 1], [0, -10]),
-        }}
-      >
-        <Stack position={"absolute"}>
-          <StarsSVG />
-        </Stack>
-        <Stack position={"absolute"} right="0">
-          <StarsSVG />
-        </Stack>
-      </animated.div>
-      <animated.div
-        style={{
-          translateY: scrollYProgress.to([0, 1], [0, 400]),
-          rotate: scrollYProgress.to([0, 1], [0, -30]),
-        }}
-      >
-        <Stack left="150" top="350" position={"absolute"}>
-          <StarsSVG color="#FFD12D" r={3} />
-        </Stack>
-        <Stack right="130" top="250" position={"absolute"}>
-          <StarsSVG color="#FFD12D" r={3} />
-        </Stack>
-      </animated.div>
-      <animated.div
-        style={{
-          translateY: scrollYProgress.to([0, 1], [0, 200]),
-          rotate: scrollYProgress.to([0, 1], [0, -50]),
-        }}
-      >
-        <Stack left="-330" top="150" position={"absolute"}>
-          <StarsSVG color="#7EFFEA" r={1.2} />
-        </Stack>
-        <Stack right="330" top="150" position={"absolute"}>
-          <StarsSVG color="#7EFFEA" r={1.2} />
-        </Stack>
-      </animated.div>
-    </Box>
-  );
-}
 function MoonAnimation() {
   const { scrollYProgress } = useScroll();
   return (
@@ -91,15 +46,14 @@ function MoonAnimation() {
       <animated.div
         style={{
           translateY: scrollYProgress.to([0, 1], [0, 600]),
-          translateX: scrollYProgress.to([0, 1], [0, -600]),
         }}
       >
         <Stack
           position="absolute"
-          width={"320px"}
-          height={"320px"}
-          right={`550px`}
-          top="-150"
+          width={"120px"}
+          height={"120px"}
+          right={`650px`}
+          top=" 0"
           zIndex={2}
         >
           <Image src="/welcome/moon.svg" layout="fill" alt="moon" />

@@ -62,12 +62,13 @@ export const ButtonStyle = {
       },
     },
     [ButtonVariant.outline]: {
-      borderColor: "brand.100",
-      borderWidth: "2px",
-      color: "brand.100",
+      borderColor: "gold",
+      borderWidth: "1px",
+      color: "gold",
+
       _hover: {
-        bg: "brand.100",
-        color: "white",
+        bg: "gold",
+        color: "black",
       },
     },
     [ButtonVariant.iconGray]: {

@@ -13,15 +13,15 @@ export const InputStyle = {
   variants: {
     [InputVariant.primary]: {
       field: {
-        bg: "white",
-        color: "gray.900",
+        bg: "transparent",
+        color: "white",
         mt: "0 !important",
         h: "48px",
         border: "1px solid ",
-        borderColor: "gray.300",
-        fontSize: "14px",
+        borderColor: "gold",
+        fontSize: "18px",
         _placeholder: {
-          color: "gray.500",
+          color: "gray.200",
         },
       },
     },

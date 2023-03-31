@@ -7,15 +7,16 @@ export enum TextAreaVariant {
 export const TextAreaStyle = {
   variants: {
     [TextAreaVariant.primary]: {
-      bg: "white",
-      color: "gray.900",
+      bg: "transparent",
+      color: "white",
       mt: "0 !important",
       h: "120px",
       border: "1px solid ",
-      borderColor: "gray.300",
-      fontSize: "14px",
+      borderColor: "gold",
+      py: "4",
+      fontSize: "18px",
       _placeholder: {
-        color: "gray.400",
+        color: "gray.200",
       },
     },
   },

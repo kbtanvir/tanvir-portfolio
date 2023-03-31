@@ -33,34 +33,34 @@ export default function SkillSection() {
               "HTML",
               "CSS",
               "SASS/SCSS",
-              "Vanilla Javascript",
-              "Typescript",
-              "Solidity",
+              "Tailwind CSS",
+              "TypeScript",
+              "Flutter",
               "React.js",
               "Next.js",
               "Jest",
-              "React Testing Library",
               "React Query",
-              "Redux",
+              "Redux & Redux Toolkit",
+              "Vue.js",
             ]}
           />
           <SkillList
             title="Backend"
             list={[
-              "HTML",
-              "CSS",
-              "SASS/SCSS",
-              "Vanilla Javascript",
-              "Typescript",
-              "Solidity",
-              "React.js",
-              "Next.js",
-              "Jest",
-              "React Testing Library",
-              "React Query",
-              "Redux",
+              "Node.js",
+              "Express.js",
+              "Nest.js",
+              "MongoDB",
+              "MySQL",
+              "Firebase",
+              "Rest API",
             ]}
           />
+          <SkillList
+            title="Motion"
+            list={["Framer Motion", "Three.js", "React Spring"]}
+          />
+          <SkillList title="CMS" list={["Wordpress", "Webflow"]} />
         </HStack>
       </HStack>
     </VStack>

@@ -1,7 +1,12 @@
-import { Box, HStack, Stack, Text, VStack } from "@chakra-ui/react";
+import { Box, HStack, Text, VStack } from "@chakra-ui/react";
+import { animated, useScroll } from "@react-spring/web";
 import Image from "next/image";
+import { StarsAnimation } from "../Welcome/StarsAnimation";
+import { ITestimonial, testimonialData } from "./data";
 
 export default function TestimonialSection() {
+  const { scrollYProgress } = useScroll();
+
   return (
     <VStack
       justifyContent={"space-between"}
@@ -11,21 +16,23 @@ export default function TestimonialSection() {
       w="full"
       bg="linear-gradient(180deg, #212530 0%, #000000 27.6%, #13161C 78.12%, #212530 100%);"
     >
-      <Stack position={"absolute"} right="0" zIndex={0}>
+      <StarsAnimation />
+      <animated.div
+        style={{
+          translateY: scrollYProgress.to([0, 1], [-200, 600]),
+          translateX: scrollYProgress.to([0, 1], [-500, 600]),
+          position: "absolute",
+          top: "0",
+          zIndex: 0,
+        }}
+      >
         <CoolText text="Testimonial" />
-      </Stack>
+      </animated.div>
+
       <VStack position={"relative"} w="full">
         <HStack position={"absolute"} zIndex={1} gap="200px" left="200px">
-          <TestimonialItem
-            text="Amazing Work As Always with Tanvir, very fast, reliant and proactive. Quality is also always there. He has the heart to do the work and will make things happen! I Highly recommend him 100%"
-            name="Frank St-Jean"
-            company="Decode"
-          />
-          <TestimonialItem
-            text="Amazing Work As Always with Tanvir, very fast, reliant and proactive. Quality is also always there. He has the heart to do the work and will make things happen! I Highly recommend him 100%"
-            name="Frank St-Jean"
-            company="Decode"
-          />
+          <TestimonialItem data={testimonialData[0]} />
+          <TestimonialItem data={testimonialData[1]} />
         </HStack>
         <HStack
           position={"absolute"}
@@ -35,16 +42,8 @@ export default function TestimonialSection() {
           w="full"
           left="400px"
         >
-          <TestimonialItem
-            text="Amazing Work As Always with Tanvir, very fast, reliant and proactive. Quality is also always there. He has the heart to do the work and will make things happen! I Highly recommend him 100%"
-            name="Frank St-Jean"
-            company="Decode"
-          />
-          <TestimonialItem
-            text="Amazing Work As Always with Tanvir, very fast, reliant and proactive. Quality is also always there. He has the heart to do the work and will make things happen! I Highly recommend him 100%"
-            name="Frank St-Jean"
-            company="Decode"
-          />
+          <TestimonialItem data={testimonialData[2]} />
+          <TestimonialItem data={testimonialData[3]} />
         </HStack>
         <HStack
           position={"absolute"}
@@ -54,16 +53,8 @@ export default function TestimonialSection() {
           left="600px"
           w="full"
         >
-          <TestimonialItem
-            text="Amazing Work As Always with Tanvir, very fast, reliant and proactive. Quality is also always there. He has the heart to do the work and will make things happen! I Highly recommend him 100%"
-            name="Frank St-Jean"
-            company="Decode"
-          />
-          <TestimonialItem
-            text="Amazing Work As Always with Tanvir, very fast, reliant and proactive. Quality is also always there. He has the heart to do the work and will make things happen! I Highly recommend him 100%"
-            name="Frank St-Jean"
-            company="Decode"
-          />
+          <TestimonialItem data={testimonialData[4]} />
+          <TestimonialItem data={testimonialData[5]} />
         </HStack>
       </VStack>
     </VStack>
@@ -91,21 +82,13 @@ export function CoolText({ text }: { text: string }) {
   );
 }
 
-function TestimonialItem({
-  name,
-  company,
-  text,
-}: {
-  name: string;
-  company: string;
-  text: string;
-}) {
+function TestimonialItem({ data }: { data: Partial<ITestimonial> }) {
   return (
     <VStack position={"relative"} justifyContent="center" alignItems={"start"}>
       <HStack gap="32px">
         <Box width="82px" height="82px" position="relative">
           <Image
-            src="/testimonial/frank.png"
+            src={`/images/testimonial/${data.image}`}
             // width="82px"
             // height="82px"
             layout="fill"
@@ -119,7 +102,7 @@ function TestimonialItem({
               color: "#FFFFFF",
             }}
           >
-            {text}
+            {data.text}
           </Text>
           <Text
             {...{
@@ -129,7 +112,7 @@ function TestimonialItem({
               color: "#FFD12D",
             }}
           >
-            {name}
+            {data.name}
           </Text>
           <Text
             {...{
@@ -137,7 +120,7 @@ function TestimonialItem({
               color: "#BEBEBE",
             }}
           >
-            {company}
+            {data.company}
           </Text>
         </VStack>
       </HStack>

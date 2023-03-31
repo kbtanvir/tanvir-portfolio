@@ -1,7 +1,6 @@
 import { HStack, Stack, Text } from "@chakra-ui/react";
 import { animated, useScroll } from "@react-spring/web";
 import Image from "next/image";
-import { OpacityTransition } from "../../../lib/springAnimation/Transition";
 
 export default function AboutSection1() {
   const { scrollYProgress } = useScroll();
@@ -35,7 +34,7 @@ export default function AboutSection1() {
             }}
           >
             Throughout my career, I`ve devoted considerable effort to
-            transforming designs into applications and websites that are{" "}
+            transforming designs into applications and websites that are
             <span>
               precise, high-performing, easily accessible, and responsive
             </span>
@@ -46,24 +45,67 @@ export default function AboutSection1() {
           </Text>
         </Stack>
       </animated.div>
-      <OpacityTransition
+
+      <BoyDreaming />
+    </HStack>
+  );
+}
+
+function BoyDreaming() {
+  const { scrollYProgress } = useScroll();
+  return (
+    <Stack
+      {...{
+        height: "802px",
+        width: "802px",
+        position: "relative",
+      }}
+    >
+      <animated.div
         style={{
-          from: {},
-          to: {
-            y: scrollYProgress.to([0, 1], [0, -500]),
-            transitionDuration: ".31s",
-          },
+          position: "absolute",
+          y: scrollYProgress.to([0, 1], [-50, 150]),
         }}
       >
-        <Stack zIndex={2}>
-          <Image
-            src="/about/about1.png"
-            width={"802px"}
-            height={"802px"}
-            alt="moon"
-          />
-        </Stack>
-      </OpacityTransition>
-    </HStack>
+        <Image
+          src="/about/sky.png"
+          width={"802px"}
+          height={"802px"}
+          alt="moon"
+        />
+      </animated.div>
+      {/* MOUNTAIN */}
+      <animated.div
+        style={{
+          position: "absolute",
+          bottom: "0",
+          y: scrollYProgress.to([0, 1], [20, -150]),
+          x: scrollYProgress.to([0, 1], [0, -50]),
+        }}
+      >
+        <Image
+          src="/about/mountain.png"
+          width={"475px"}
+          height={"264px"}
+          alt="moon"
+        />
+      </animated.div>
+      {/* BOY */}
+      <animated.div
+        style={{
+          position: "absolute",
+          bottom: "0",
+          right: "-100px",
+          y: scrollYProgress.to([0, 1], [50, -200]),
+        }}
+      >
+        <Image
+          src="/about/boy.png"
+          width={"663px"}
+          height={"527px"}
+          alt="moon"
+        />
+      </animated.div>
+    </Stack>
   );
 }

@@ -1,4 +1,4 @@
-import { Box, Button, HStack, VStack } from "@chakra-ui/react";
+import { Box, Button, Text, VStack } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormProvider, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
@@ -67,7 +67,7 @@ export default function CTAForm() {
       {
         name: "message",
         placeholder: t("What's on your mind?"),
-        type: "text",
+        type: "textarea",
         label: t("Name"),
         validation: () => yup.string().required(t("Field is required")),
       },
@@ -105,14 +105,16 @@ export default function CTAForm() {
   return (
     <>
       <VStack w={"full"} alignItems="stretch" gap="23px">
-        <HStack
-          w="full"
+        <VStack
+          maxW="full"
           alignItems={"stretch"}
-          flexDir={["column", "row"]}
+          flexDir={["column"]}
           gap={commonStyle.componentGap}
         >
           {/* SPLASH IMAGE */}
-
+          <Text color="gold" fontSize={"34px"}>
+            Tell me about your exciting ideas!
+          </Text>
           {/* FORM  */}
           <Box w="full" maxW="400px">
             <FormProvider {...formService}>
@@ -140,8 +142,10 @@ export default function CTAForm() {
                 {/* BUTTONS */}
 
                 <Button
-                  variant={"solid"}
-                  colorScheme={"orange"}
+                  variant={"outline"}
+                  textTransform={"capitalize"}
+                  fontSize={"18px"}
+                  fontWeight={"400"}
                   type={"submit"}
                   width="full"
                   // isLoading={formMutation.isLoading}
@@ -151,7 +155,7 @@ export default function CTAForm() {
               </form>
             </FormProvider>
           </Box>
-        </HStack>
+        </VStack>
       </VStack>
     </>
   );

@@ -1,7 +1,6 @@
 import { HStack, Stack, Text } from "@chakra-ui/react";
 import { animated, useScroll } from "@react-spring/web";
 import Image from "next/image";
-import { OpacityTransition } from "../../../lib/springAnimation/Transition";
 
 export default function AboutSection2() {
   const { scrollYProgress } = useScroll();
@@ -17,12 +16,9 @@ export default function AboutSection2() {
       bg="#212530"
       zIndex={1}
     >
-      <OpacityTransition
+      <animated.div
         style={{
-          from: {},
-          to: {
-            y: scrollYProgress.to([0, 1], [600, -100]),
-          },
+          y: scrollYProgress.to([0, 1], [600, -100]),
         }}
       >
         <Stack zIndex={2}>
@@ -33,7 +29,8 @@ export default function AboutSection2() {
             alt="moon"
           />
         </Stack>
-      </OpacityTransition>
+      </animated.div>
+
       <animated.div
         style={{
           translateY: scrollYProgress.to([0, 1], [0, 600]),
