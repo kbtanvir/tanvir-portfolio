@@ -10,7 +10,7 @@ import WorksSection from "../features/home/WorksSection/Index";
 
 export default function Index() {
   return (
-    <VStack style={{ width: "100%", minHeight: "100vh"  }}>
+    <VStack {...{ width: "100%", minHeight: "100vh", bg: "black" }}>
       <WelcomeSection />
       <AboutSection1 />
       <WorksSection />

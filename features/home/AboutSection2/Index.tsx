@@ -37,7 +37,7 @@ export default function AboutSection2() {
           translateY: scrollYProgress.to([0, 1], [0, 600]),
         }}
       >
-        <Stack maxW={"609px"}>
+        <Stack maxW={"609px"} position={"relative"} top={[-100, 0]}>
           <Text
             fontSize={[25, "35px"]}
             lineHeight="1.2"

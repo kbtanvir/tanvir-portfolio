@@ -19,6 +19,10 @@ import { CustomDrawer } from "../../../lib/atoms/Drawer/CustomDrawer";
 import { StarsAnimation } from "../Welcome/StarsAnimation";
 import { IWorkData, worksData } from "./data";
 
+const commonStyles = {
+  projectGap: [6, "800px"],
+};
+
 export default function WorksSection() {
   const { scrollYProgress } = useScroll();
   const [isLargerThan800] = useMediaQuery("(min-width: 800px)");
@@ -26,40 +30,32 @@ export default function WorksSection() {
 
   return (
     <VStack
-      justifyContent={"space-between"}
+      justifyContent={["space-between"]}
       position="relative"
-      minH="1200px"
+      minH={["240vh", "1200px"]}
+      zIndex={2}
       pt="200px"
-      pb="200"
+      pb={["200"]}
       w="full"
       bg="linear-gradient(180deg, #212530 0%, #000000 27.6%, #13161C 78.12%, #212530 100%);"
     >
       <StarsAnimation />
+      {/* ROW 1 */}
       <HStack position={"relative"} w="full">
         <animated.div
-          style={(() => {
-            if (isLargerThan800) {
-              return {
-                x: scrollYProgress.to([0, 1], [100, 500]),
-                top: 0,
-                position: "absolute",
-                zIndex: 1,
-              };
-            }
-            if (isLargerThan500) {
-              return {
-                left: scrollYProgress.to([0, 1], [-800, 1300]),
-                top: -200,
-                position: "absolute",
-              };
-            }
-
-            return {
-              position: "absolute",
-            };
-          })()}
+          style={{
+            x: isLargerThan500 ? scrollYProgress.to([0, 1], [100, 500]) : 0,
+            top: 0,
+            position: "absolute",
+            zIndex: 1,
+            width: "100%",
+          }}
         >
-          <HStack gap="600px">
+          <HStack
+            gap={commonStyles.projectGap}
+            flexDir={["column", "row"]}
+            w={["full", "auto"]}
+          >
             <ProjectItem item={worksData[0]} />
             <ProjectItem item={worksData[1]} />
           </HStack>
@@ -74,40 +70,52 @@ export default function WorksSection() {
           <CoolText text="Live" />
         </animated.div>
       </HStack>
+      {/* ROW 2 */}
       <HStack position={"relative"} w="full">
         <animated.div
           style={{
             left: scrollYProgress.to([0, 1], [-800, 1300]),
             top: -200,
             position: "absolute",
+            width: "100%",
           }}
         >
           <CoolText text="To" />
         </animated.div>
         <animated.div
           style={{
-            right: scrollYProgress.to([0, 1], [200, 1000]),
+            right: isLargerThan500
+              ? scrollYProgress.to([0, 1], [200, 1000])
+              : 0,
             top: 0,
             position: "absolute",
             zIndex: 1,
+            width: "100%",
           }}
         >
-          <HStack gap="600px">
+          <HStack
+            gap={commonStyles.projectGap}
+            flexDir={["column", "row"]}
+            w={["full", "auto"]}
+            alignItems={["start", "flex-start"]}
+          >
             <ProjectItem item={worksData[2]} />
             <ProjectItem item={worksData[3]} />
           </HStack>
         </animated.div>
       </HStack>
+      {/* ROW 3 */}
       <HStack position={"relative"} w="full">
         <animated.div
           style={{
-            left: scrollYProgress.to([0, 1], [-0, 500]),
+            left: isLargerThan500 ? scrollYProgress.to([0, 1], [-0, 500]) : 0,
             top: 0,
             position: "absolute",
             zIndex: 1,
+            width: "100%",
           }}
         >
-          <HStack gap="600px">
+          <HStack gap={commonStyles.projectGap}>
             <ProjectItem item={worksData[4]} />
             {/* <ProjectItem item={worksData[5]} /> */}
           </HStack>
@@ -142,21 +150,24 @@ function ProjectItem({ item }: { item: Partial<IWorkData> }) {
         position={"relative"}
         justifyContent="center"
         alignItems={"start"}
+        w={["full", "auto"]}
         onMouseEnter={() => sethover(true)}
         onMouseLeave={() => sethover(false)}
+        px={[6, 0]}
       >
-        <animated.div
-          style={{
-            transform: hover ? "translateX(0px)" : "translateX(-50px)",
+        <Box
+          {...{
+            transform: hover
+              ? "translateX(0px)"
+              : ["translateX(0px)", "translateX(-50px)"],
             transition: "all 0.7s ease-in-out",
-            // transitionDelay: "0.6s",
+            zIndex: 2,
             background: hover ? "rgba(0, 0, 0, 0.7)" : "transparent",
             backdropFilter: hover ? "blur(10px)" : "none",
-            position: "relative",
-            zIndex: 2,
+            position: "absolute",
+            minW: "300px",
             display: "flex",
             flexDirection: "column",
-
             justifyContent: "space-between",
             padding: "20px",
             paddingBottom: "30px",
@@ -183,37 +194,37 @@ function ProjectItem({ item }: { item: Partial<IWorkData> }) {
             zIndex={2}
             w="100px"
             mb="10px"
-            // opacity={hover ? 1 : 0}
             transition={"all 0.3s ease-in"}
             transitionDelay="0.3s"
-            // transform={hover ? "translateX(-32px)" : "translateX(-0px)"}
           />
-        </animated.div>
+        </Box>
         <Stack
           {...{
-            width: "487px",
+            width: ["100%", "487px"],
             height: "276px",
-            position: "absolute",
+            position: ["relative", "absolute"],
             zIndex: 0,
             borderRadius: "10px",
             overflow: "hidden",
-            transform: hover ? "translateX(-0px)" : "translateX(40px)",
+            transform: hover
+              ? "translateX(-0px)"
+              : ["translateX(0px)", "translateX(40px)"],
             transition: "all 0.9s ease-in-out",
           }}
         >
           <Box
             {...{
-              width: "full",
-              height: "full",
+              width: "101%",
+              height: "101%",
               position: "absolute",
               zIndex: 1,
               background: `linear-gradient(180deg, rgb(9 8 20 / 86%) 0%, rgb(0 0 0 / 24%) 100%)`,
               opacity: hover ? 0 : 1,
-              left: "0",
+              left: ["0", "-1"],
+              top: "-1",
               transform: hover ? "translateY(-600px)" : "translateY(0)",
               transition:
                 "transform 0.3s ease-in-out, opacity 0.6s ease-in-out",
-              backdropFilter: "blur(1px)",
             }}
           />
 

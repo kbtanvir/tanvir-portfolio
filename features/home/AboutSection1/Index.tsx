@@ -81,36 +81,42 @@ function BoyDreaming() {
       <animated.div
         style={{
           position: "absolute",
-          bottom: "0",
           y: scrollYProgress.to([0, 1], [20, -150]),
           x: scrollYProgress.to([0, 1], [0, -50]),
         }}
       >
-        <Image
-          src="/about/mountain.png"
-          width={"475px"}
-          height={"264px"}
-          alt="moon"
-        />
+        <Box
+          {...{
+            height: ["200px", "264px"],
+            width: ["400px", "475px"],
+            position: "relative",
+            bottom: ["-300px"],
+            left: ["-100px"],
+          }}
+        >
+          <Image src="/about/mountain.png" layout="fill" alt="moon" />
+        </Box>
       </animated.div>
       {/* BOY */}
-      <Box
-        as={animated.div}
+      <animated.div
         style={{
           position: "absolute",
-          bottom: "0",
-          right: "-100px",
           y: scrollYProgress.to([0, 1], [50, -200]),
           zIndex: 1,
         }}
       >
-        <Image
-          src="/about/boy.png"
-          width={"663px"}
-          height={"527px"}
-          alt="moon"
-        />
-      </Box>
+        <Box
+          {...{
+            height: ["400px", "663px"],
+            width: ["500px", "827px"],
+            position: "relative",
+            right: [-20, "-200px"],
+            bottom: [-40, "-220px"],
+          }}
+        >
+          <Image src="/about/boy.png" layout="fill" alt="moon" />
+        </Box>
+      </animated.div>
     </Stack>
   );
 }
