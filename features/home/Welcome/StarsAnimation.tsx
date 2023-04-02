@@ -44,9 +44,9 @@ export function StarsAnimation({
       overflow={"hidden"}
       minH="100vh"
     >
-      {stars.map(i => {
-        return <ShootingStar key={i} />;
-      })}
+      {stars.map(i => (
+        <ShootingStar key={i} />
+      ))}
       <animated.div
         style={{
           translateY: scrollYProgress.to([0, 1], [0, 100]),

@@ -105,18 +105,18 @@ export default function CTAForm() {
   return (
     <>
       <VStack w={"full"} alignItems="stretch" gap="23px">
-        <VStack
-          maxW="full"
-          alignItems={"stretch"}
-          flexDir={["column"]}
-          gap={commonStyle.componentGap}
-        >
+        <VStack maxW="full" alignItems={"start"} gap={commonStyle.componentGap}>
           {/* SPLASH IMAGE */}
-          <Text color="gold" fontSize={"34px"}>
-            Tell me about your exciting ideas!
-          </Text>
+          <VStack alignItems={"start"}>
+            <Text color="white" fontSize={"45px"} fontWeight={"700"} mb="-2">
+              Lets talk about
+            </Text>
+            <Text color="gold" fontSize={"45px"} fontWeight={"700"}>
+              Your exciting project!
+            </Text>
+          </VStack>
           {/* FORM  */}
-          <Box w="full" maxW="400px">
+          <Box w="full" maxW="500px">
             <FormProvider {...formService}>
               <form onSubmit={formService.handleSubmit(onSubmit)}>
                 <VStack

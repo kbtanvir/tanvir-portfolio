@@ -1,5 +1,4 @@
 import { Modal, ModalContent, ModalOverlay, Stack } from "@chakra-ui/react";
-import { CloseIcon } from "../../../features/common/CustomIcons";
 
 export function CustomModal(props: {
   isOpen: boolean;
@@ -10,7 +9,11 @@ export function CustomModal(props: {
   return (
     <Modal onClose={props.onClose} isOpen={props.isOpen}>
       <ModalOverlay />
-      <ModalContent p={["30px", "60px"]} maxW={props.maxW || "570px"}>
+      <ModalContent
+        p={["30px", "60px"]}
+        maxW={props.maxW || "570px"}
+        bg="black"
+      >
         <Stack
           bg="gray.100"
           justifyContent={"center"}
@@ -26,7 +29,7 @@ export function CustomModal(props: {
           onClick={props.onClose}
           _hover={{ opacity: 0.8 }}
         >
-          <CloseIcon />
+          Close
         </Stack>
         {props.body}
       </ModalContent>

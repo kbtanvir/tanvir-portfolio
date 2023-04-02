@@ -1,14 +1,29 @@
-import { Box, HStack, Icon, Stack, Text, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  HStack,
+  Icon,
+  Link,
+  Stack,
+  Tag,
+  Text,
+  VStack,
+  useDisclosure,
+  useMediaQuery,
+} from "@chakra-ui/react";
 import { animated, useScroll } from "@react-spring/web";
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
-import { AiOutlineFileText, AiOutlineLink } from "react-icons/ai";
+import { AiOutlineLink } from "react-icons/ai";
+import { CoolText } from "../../../lib/atoms/CoolText/CoolText";
+import { CustomDrawer } from "../../../lib/atoms/Drawer/CustomDrawer";
 import { StarsAnimation } from "../Welcome/StarsAnimation";
 import { IWorkData, worksData } from "./data";
 
 export default function WorksSection() {
   const { scrollYProgress } = useScroll();
+  const [isLargerThan800] = useMediaQuery("(min-width: 800px)");
+  const [isLargerThan500] = useMediaQuery("(min-width: 500px)");
+
   return (
     <VStack
       justifyContent={"space-between"}
@@ -22,22 +37,31 @@ export default function WorksSection() {
       <StarsAnimation />
       <HStack position={"relative"} w="full">
         <animated.div
-          style={{
-            left: scrollYProgress.to([0, 1], [100, 500]),
-            top: 0,
-            position: "absolute",
-            zIndex: 1,
-          }}
+          style={(() => {
+            if (isLargerThan800) {
+              return {
+                x: scrollYProgress.to([0, 1], [100, 500]),
+                top: 0,
+                position: "absolute",
+                zIndex: 1,
+              };
+            }
+            if (isLargerThan500) {
+              return {
+                left: scrollYProgress.to([0, 1], [-800, 1300]),
+                top: -200,
+                position: "absolute",
+              };
+            }
+
+            return {
+              position: "absolute",
+            };
+          })()}
         >
           <HStack gap="600px">
-            <ProjectItem
-              title={worksData[0].title}
-              imageURL={worksData[0].imageURL}
-            />
-            <ProjectItem
-              title={worksData[1].title}
-              imageURL={worksData[1].imageURL}
-            />
+            <ProjectItem item={worksData[0]} />
+            <ProjectItem item={worksData[1]} />
           </HStack>
         </animated.div>
         <animated.div
@@ -69,14 +93,8 @@ export default function WorksSection() {
           }}
         >
           <HStack gap="600px">
-            <ProjectItem
-              title={worksData[2].title}
-              imageURL={worksData[2].imageURL}
-            />
-            <ProjectItem
-              title={worksData[3].title}
-              imageURL={worksData[3].imageURL}
-            />
+            <ProjectItem item={worksData[2]} />
+            <ProjectItem item={worksData[3]} />
           </HStack>
         </animated.div>
       </HStack>
@@ -90,14 +108,8 @@ export default function WorksSection() {
           }}
         >
           <HStack gap="600px">
-            <ProjectItem
-              title={worksData[4].title}
-              imageURL={worksData[4].imageURL}
-            />
-            <ProjectItem
-              title={worksData[5].title}
-              imageURL={worksData[5].imageURL}
-            />
+            <ProjectItem item={worksData[4]} />
+            {/* <ProjectItem item={worksData[5]} /> */}
           </HStack>
         </animated.div>
         <animated.div
@@ -114,152 +126,206 @@ export default function WorksSection() {
   );
 }
 
-export function CoolText({ text, bg }: { text: string; bg?: string }) {
+function ProjectItem({ item }: { item: Partial<IWorkData> }) {
+  const [hover, sethover] = useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <Text
-      {...{
-        fontWeight: 700,
-        fontSize: "302px",
-        lineHeight: "365px",
-        textTransform: "uppercase",
-        background:
-          bg || "linear-gradient(180deg, #2C3344 0%, rgba(44, 51, 68, 0) 100%)",
-        backgroundClip: "text",
-      }}
-    >
-      {text}
-    </Text>
+    <>
+      <CustomDrawer
+        isOpen={isOpen}
+        onClose={onClose}
+        body={<SingleItemModal item={item} />}
+      />
+      <VStack
+        onClick={onOpen}
+        cursor={"pointer"}
+        position={"relative"}
+        justifyContent="center"
+        alignItems={"start"}
+        onMouseEnter={() => sethover(true)}
+        onMouseLeave={() => sethover(false)}
+      >
+        <animated.div
+          style={{
+            transform: hover ? "translateX(0px)" : "translateX(-50px)",
+            transition: "all 0.7s ease-in-out",
+            // transitionDelay: "0.6s",
+            background: hover ? "rgba(0, 0, 0, 0.7)" : "transparent",
+            backdropFilter: hover ? "blur(10px)" : "none",
+            position: "relative",
+            zIndex: 2,
+            display: "flex",
+            flexDirection: "column",
+
+            justifyContent: "space-between",
+            padding: "20px",
+            paddingBottom: "30px",
+            paddingRight: "30px",
+          }}
+        >
+          <Text
+            color="white"
+            fontSize={"24px"}
+            position="relative"
+            zIndex={1}
+            fontWeight="700"
+            textTransform={"uppercase"}
+            pb="3"
+          >
+            {item.title}
+          </Text>
+
+          <Box
+            bg="#FFD12D"
+            h="3px"
+            border={"none"}
+            position="relative"
+            zIndex={2}
+            w="100px"
+            mb="10px"
+            // opacity={hover ? 1 : 0}
+            transition={"all 0.3s ease-in"}
+            transitionDelay="0.3s"
+            // transform={hover ? "translateX(-32px)" : "translateX(-0px)"}
+          />
+        </animated.div>
+        <Stack
+          {...{
+            width: "487px",
+            height: "276px",
+            position: "absolute",
+            zIndex: 0,
+            borderRadius: "10px",
+            overflow: "hidden",
+            transform: hover ? "translateX(-0px)" : "translateX(40px)",
+            transition: "all 0.9s ease-in-out",
+          }}
+        >
+          <Box
+            {...{
+              width: "full",
+              height: "full",
+              position: "absolute",
+              zIndex: 1,
+              background: `linear-gradient(180deg, rgb(9 8 20 / 86%) 0%, rgb(0 0 0 / 24%) 100%)`,
+              opacity: hover ? 0 : 1,
+              left: "0",
+              transform: hover ? "translateY(-600px)" : "translateY(0)",
+              transition:
+                "transform 0.3s ease-in-out, opacity 0.6s ease-in-out",
+              backdropFilter: "blur(1px)",
+            }}
+          />
+
+          <Image
+            src={item.imageURL ? `/images/works/${item.imageURL}` : ""}
+            layout="fill"
+            alt="moon"
+            objectFit="cover"
+            objectPosition="center"
+            style={{
+              zIndex: 0,
+            }}
+          />
+        </Stack>
+      </VStack>
+    </>
   );
 }
 
-function ProjectItem({
-  title,
-  imageURL: featuredImage,
-  liveUrl,
-  pageUrl,
-}: Partial<IWorkData>) {
-  const [hover, sethover] = useState(false);
+function SingleItemModal({ item }: { item: Partial<IWorkData> }) {
   return (
-    <VStack
-      position={"relative"}
-      justifyContent="center"
-      alignItems={"start"}
-      onMouseEnter={() => sethover(true)}
-      onMouseLeave={() => sethover(false)}
-    >
-      <animated.div
-        style={{
-          transform: hover ? "translateX(0px)" : "translateX(-50px)",
-          transition: "all 0.7s ease-in-out",
-          // transitionDelay: "0.6s",
-          background: hover ? "rgba(0, 0, 0, 0.7)" : "transparent",
-          backdropFilter: hover ? "blur(10px)" : "none",
-          position: "relative",
-          zIndex: 2,
-          display: "flex",
-          flexDirection: "column",
-          height: "140px",
-          justifyContent: "space-between",
-          padding: "20px",
-          paddingBottom: "30px",
-          paddingRight: "30px",
-        }}
-      >
-        <Text
-          color="white"
-          fontSize={"24px"}
-          position="relative"
-          zIndex={1}
-          fontWeight="700"
-          textTransform={"uppercase"}
-        >
-          {title}
-        </Text>
-
-        <Box
-          bg="#FFD12D"
-          h="3px"
-          border={"none"}
-          position="relative"
-          zIndex={2}
-          w="100px"
-          mb="10px"
-          // opacity={hover ? 1 : 0}
-          transition={"all 0.3s ease-in"}
-          transitionDelay="0.3s"
-          // transform={hover ? "translateX(-32px)" : "translateX(-0px)"}
-        />
-        <animated.div
-          style={{
-            left: "0px",
-            opacity: hover ? 1 : 0,
-            transition: "all 0.3s ease-in",
-            transitionDelay: "0.6s",
-            display: "flex",
-            gap: "20px",
-          }}
-        >
-          {[
-            {
-              icon: AiOutlineFileText,
-              url: pageUrl || "",
-            },
-            {
-              icon: AiOutlineLink,
-              url: liveUrl || "",
-            },
-          ].map((item, i) => (
-            <Link target="_blank" href={item.url} key={i}>
-              <Icon
-                as={item.icon}
-                color={"white"}
-                fontSize={"20px"}
-                cursor="pointer"
-                transition={"all 0.3s ease-in"}
-                _hover={{ color: "gold", transform: "scale(1.2)" }}
-              />
-            </Link>
-          ))}
-        </animated.div>
-      </animated.div>
-      <Stack
-        {...{
-          width: "487px",
-          height: "276px",
-          position: "absolute",
-          zIndex: 0,
-          borderRadius: "10px",
-          overflow: "hidden",
-          transform: hover ? "translateX(-0px)" : "translateX(40px)",
-          transition: "all 0.9s ease-in-out",
-        }}
-      >
-        <Box
-          {...{
-            width: "full",
-            height: "full",
-            position: "absolute",
-            zIndex: 1,
-            background: `linear-gradient(180deg, rgb(9 8 20 / 86%) 0%, rgb(0 0 0 / 24%) 100%)`,
-            opacity: hover ? 0 : 1,
-            left: "0",
-            transform: hover ? "translateY(-600px)" : "translateY(0)",
-            transition: "transform 0.3s ease-in-out, opacity 0.6s ease-in-out",
-            backdropFilter: "blur(1px)",
-          }}
-        />
-
+    <VStack w="full" justifyContent={"start"} alignItems={"start"} gap="4">
+      {/* IMAGE */}
+      <Box position="relative" height="300px" w="full">
         <Image
-          src={featuredImage ? `/images/works/${featuredImage}` : ""}
+          style={{ borderRadius: "10px" }}
+          src={item.imageURL ? `/images/works/${item.imageURL}` : ""}
           layout="fill"
           alt="moon"
-          style={{
-            objectFit: "cover",
-            objectPosition: "center",
-            zIndex: 0,
-          }}
+          objectFit="cover"
         />
-      </Stack>
+      </Box>
+      <HStack pt="4">
+        {item.skills!.map((text, i) => (
+          <Tag key={i} variant="outline" size="lg" mr="2" color="gold">
+            {text}
+          </Tag>
+        ))}
+      </HStack>
+      <Link target="_blank" href={item.liveUrl} _focus={{ outline: "none" }}>
+        <>
+          <HStack
+            pt="4"
+            cursor="pointer"
+            _hover={{ color: "gold", transform: "scale(1.2)" }}
+            transition={"all 0.3s ease-in"}
+          >
+            <Icon
+              as={AiOutlineLink}
+              color={"white"}
+              fontSize={"20px"}
+              cursor="pointer"
+            />
+            <Text color="white" fontSize={"20px"} display="inline">
+              Live demo
+            </Text>
+          </HStack>
+        </>
+      </Link>
+
+      {/* TITLE */}
+      <Text color="Gold" fontSize={"24px"} textTransform={"capitalize"}>
+        {item.title}
+      </Text>
+      <Box bg="#FFD12D" h="3px" border={"none"} w="100px" mb="10px" />
+      <Text color="white" fontSize={"16px"}>
+        {item.overview}
+      </Text>
+      {/* RESULTS */}
+      {item.results!.length > 0 && (
+        <>
+          <Text color="white" fontSize={"24px"}>
+            Results
+          </Text>
+          <Box bg="#FFD12D" h="3px" border={"none"} w="100px" mb="10px" />
+          <VStack alignItems={"start"}>
+            {item.results?.map((result, i) => (
+              <Text color="white" fontSize={"16px"} key={i}>
+                ✅ {result}
+              </Text>
+            ))}
+          </VStack>
+        </>
+      )}
+      {/* Challenges */}
+      {item.challenges!.length > 0 && (
+        <>
+          <Text color="white" fontSize={"24px"}>
+            Challenges
+          </Text>
+          <Box bg="#FFD12D" h="3px" border={"none"} w="100px" mb="10px" />
+          <VStack alignItems={"start"}>
+            {item.challenges?.map((result, i) => (
+              <Text color="white" fontSize={"16px"} key={i}>
+                🟥 {result}
+              </Text>
+            ))}
+          </VStack>
+        </>
+      )}
+      {/* RESULTS */}
+      <Text color="white" fontSize={"24px"}>
+        Solutions
+      </Text>
+      <Box bg="#FFD12D" h="3px" border={"none"} w="100px" mb="10px" />
+      <VStack alignItems={"start"}>
+        {item.solution?.map((result, i) => (
+          <Text color="white" fontSize={"16px"} key={i}>
+            🟩 {result}
+          </Text>
+        ))}
+      </VStack>
     </VStack>
   );
 }

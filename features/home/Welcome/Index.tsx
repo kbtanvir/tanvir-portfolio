@@ -1,7 +1,8 @@
-import { HStack, Stack, Text, VStack } from "@chakra-ui/react";
+import { Stack, VStack } from "@chakra-ui/react";
 import { animated, useScroll } from "@react-spring/web";
 import Image from "next/image";
 import { TerrainSVG } from "../../../lib/atoms/SVG/WelcomeSVGs";
+import { IntroTexts } from "./IntroTexts";
 import { StarsAnimation } from "./StarsAnimation";
 
 export default function WelcomeSection() {
@@ -17,24 +18,7 @@ export default function WelcomeSection() {
       <MoonAnimation />
       <MountainAnimation />
       <TerrainAnimation />
-      <VStack zIndex={5} alignItems={"start"} alignSelf="start" pl="20">
-        <HStack justifyContent={"start"} alignItems="start">
-          <Text color="#FFD12D" fontSize={40} fontWeight="700">
-            Hi, I am
-          </Text>
-          <Text color="white" fontSize={40} fontWeight="700">
-            Tanvir
-          </Text>
-        </HStack>
-        <HStack>
-          <Text color="white" fontSize={40} fontWeight="700">
-            I make
-          </Text>
-          <Text color="#FFD12D" fontSize={40} fontWeight="700">
-            Mobile apps
-          </Text>
-        </HStack>
-      </VStack>
+      <IntroTexts />
     </VStack>
   );
 }
@@ -42,7 +26,7 @@ export default function WelcomeSection() {
 function MoonAnimation() {
   const { scrollYProgress } = useScroll();
   return (
-    <Stack right="0" position={"absolute"} zIndex="2">
+    <Stack right={[0]} bottom={[0, 450]} position={"absolute"} zIndex="2">
       <animated.div
         style={{
           translateY: scrollYProgress.to([0, 1], [0, 600]),
@@ -50,10 +34,10 @@ function MoonAnimation() {
       >
         <Stack
           position="absolute"
-          width={"120px"}
-          height={"120px"}
-          right={`650px`}
-          top=" 0"
+          width={[70, "120px"]}
+          height={[70, "120px"]}
+          right={[100, `680px`]}
+          bottom={[150, -39]}
           zIndex={2}
         >
           <Image src="/welcome/moon.svg" layout="fill" alt="moon" />
@@ -65,7 +49,8 @@ function MoonAnimation() {
           h="454px"
           position="absolute"
           right="150px"
-          top="-120px"
+          top={["-120px"]}
+          display={["none", "block"]}
           bg="radial-gradient(50% 50% at 50% 50%, rgba(79, 237, 234, 0.228) 0%, rgba(187, 55, 208, 0) 94.27%);"
         />
       </animated.div>
@@ -75,7 +60,12 @@ function MoonAnimation() {
 function MountainAnimation() {
   const { scrollYProgress } = useScroll();
   return (
-    <Stack right="150px" bottom="20" position={"absolute"} zIndex="2">
+    <Stack
+      right={[0, "150px"]}
+      bottom={[0, "20"]}
+      position={"absolute"}
+      zIndex="2"
+    >
       <animated.div
         style={{
           translateY: scrollYProgress.to([0, 1], [0, 200]),
@@ -93,7 +83,7 @@ function MountainAnimation() {
 }
 function TerrainAnimation() {
   return (
-    <Stack position={"absolute"} zIndex="3" bottom="-40" w="full">
+    <Stack position={"absolute"} zIndex="3" bottom={[-4, "-40"]} w="full">
       <TerrainSVG />
     </Stack>
   );

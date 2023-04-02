@@ -1,4 +1,4 @@
-import { HStack, Stack, Text } from "@chakra-ui/react";
+import { Box, HStack, Stack, Text } from "@chakra-ui/react";
 import { animated, useScroll } from "@react-spring/web";
 import Image from "next/image";
 
@@ -11,24 +11,26 @@ export default function AboutSection1() {
       position="relative"
       minH="1000px"
       w="full"
-      px="20"
-      py="300px"
+      px={[6, "20"]}
+      py={[10, "300px"]}
       bg="#212530"
+      flexDir={["column", "row"]}
     >
       <animated.div
         style={{
           translateY: scrollYProgress.to([0, 1], [0, 800]),
+          zIndex: 1,
         }}
       >
         <Stack maxW={"609px"}>
           <Text
-            fontSize={"35px"}
+            fontSize={[25, "35px"]}
             lineHeight="1.2"
             color="white"
             sx={{
               "& span": {
                 color: "#FFD12D",
-                fontSize: "35px",
+                fontSize: [25, "35px"],
                 lineHeight: "1.2",
               },
             }}
@@ -56,8 +58,8 @@ function BoyDreaming() {
   return (
     <Stack
       {...{
-        height: "802px",
-        width: "802px",
+        height: [500, "802px"],
+        width: [500, "802px"],
         position: "relative",
       }}
     >
@@ -65,6 +67,7 @@ function BoyDreaming() {
         style={{
           position: "absolute",
           y: scrollYProgress.to([0, 1], [-50, 150]),
+          zIndex: 0,
         }}
       >
         <Image
@@ -91,12 +94,14 @@ function BoyDreaming() {
         />
       </animated.div>
       {/* BOY */}
-      <animated.div
+      <Box
+        as={animated.div}
         style={{
           position: "absolute",
           bottom: "0",
           right: "-100px",
           y: scrollYProgress.to([0, 1], [50, -200]),
+          zIndex: 1,
         }}
       >
         <Image
@@ -105,7 +110,7 @@ function BoyDreaming() {
           height={"527px"}
           alt="moon"
         />
-      </animated.div>
+      </Box>
     </Stack>
   );
 }

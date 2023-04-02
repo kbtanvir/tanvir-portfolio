@@ -6,8 +6,9 @@ export type IWorkData = {
   solution: string[];
   results: string[];
   imageURL: string;
-  liveUrl: string;
+  liveUrl: any;
   pageUrl?: string;
+  skills: string[];
 };
 
 export const worksData: IWorkData[] = [
@@ -15,25 +16,26 @@ export const worksData: IWorkData[] = [
     id: 1,
     title: "Autroworld",
     overview:
-      "A client with 80 product images listed in a Google sheet was struggling with product placement and the creation of 30 pages on their website, while also facing issues with website speed. Our team provided a solution by creating a data structure of fixed positions of products from images, along with reusable templates for page creation, and moving the website to NEXT JS with optimized images",
+      "A client with 80 product images listed in a Google sheet was struggling with product placement and the creation of 30 pages on their website, while also facing issues with website speed. I  provided a solution by creating a data structure of fixed positions of products from images, along with reusable templates for page creation, and moving the website to NEXT JS with optimized images",
     results: [
-      "The data structure became manageable for the client and developers",
+      "The data structure were made easily accessible for the client and developers",
+      "Development time was reduced by 40%",
       "Website speed was improved by 70%",
-      "Development time was reduced by 50%",
     ],
     challenges: [
       "Product placement was difficult due to a lack of information in the Google sheet",
-      "Creating unorganized pages was time-consuming for developers",
+      "Creating too many unorganized pages was time-consuming for developers",
       "Website speed was slow, affecting user experience and potentially decreasing conversion rates",
     ],
     solution: [
       "Created a data structure of fixed positions of products from images with help of browser dev tools",
-      "Created reusable templates for page creation to reduce development time",
-      "Applied caching,lazy loading methods with NEXT JS to improve website speed",
+      "Created reusable templates for repetitive page creation",
+      "Applied caching, lazy loading methods with NEXT JS to improve website speed",
     ],
 
     imageURL: "autroworld.png",
     liveUrl: "https://autroworld.com/",
+    skills: ["React", "Next.js", "SCSS", "Data Structure", "Vercel"],
   },
   {
     id: 2,
@@ -41,27 +43,27 @@ export const worksData: IWorkData[] = [
     overview:
       "Our client, a leading global warehousing company, approached us with a unique challenge. They wanted to integrate an external global warehouse API into their existing WordPress website to showcase their storage facilities in a single listing UI with search capabilities. However, the API job was not straightforward, as there were multiple APIs for managing store locations, rooms, facilities, and discount codes, all linked to one another with a one-to-many relation.",
     results: [
-      "The custom API reduced complexity and increased efficiency, potentially leading to a 30% reduction in management time and costs.",
-      "The use of shortcodes saved time and improved website navigation, potentially increasing user satisfaction by 20-25%.",
-      "The multilingual translation feature expanded the company's reach to non-English speaking audiences, potentially increasing sales and revenue by 15-20%.",
-      "The location-finding function improved the user experience and provided relevant information to potential customers, potentially increasing conversion rates by 10-15%.",
+      // "The custom API reduced complexity and increased efficiency, potentially leading to a 30% reduction in management time and costs.",
+      // "The use of shortcodes saved time and improved website navigation, potentially increasing user satisfaction by 20-25%.",
+      // "The multilingual translation feature expanded the company's reach to non-English speaking audiences, potentially increasing sales and revenue by 15-20%.",
+      // "The location-finding function improved the user experience and provided relevant information to potential customers, potentially increasing conversion rates by 10-15%.",
     ],
     challenges: [
-      "The company wants to integrate an external global warehouse API into its WordPress website to showcase its storage facilities in a single listing UI with search capabilities.",
-      "The company wants to integrate an external global warehouse API into its WordPress website to showcase its storage facilities in a single listing UI with search capabilities.",
+      "The company wanted to integrate an external global warehouse API into its WordPress website to showcase its storage facilities in a single listing UI with search capabilities.",
       "There are multiple APIs for managing store locations, rooms, facilities, and discount codes that are linked to one another with a one-to-many relation, making it challenging to integrate them into the website.",
       "The text generated by the API needs to be translated into three different languages, which can be time-consuming and complicated.",
       "The company wants to display the two nearest storage locations based on user location data, which requires a location-finding function to be implemented.",
     ],
     solution: [
       "To integrate the external global warehouse API into the WordPress website, I merged the multiple APIs into one custom API and created a UI with Vue JS.",
-      "To work around the inability to update the location and sublocation pages, I created a list of page URLs and used regex to filter API locations.",
-      "To display the filtered items on matching pages, I created shortcodes, saving time and improving website navigation.",
-      "To translate the API-generated text into three different languages, I used a plugin specifically designed for multilingual translation.",
-      "To show the two nearest storage locations based on user location data, I implemented a location-finding algorithm that retrieves coordinates from the API.",
+      "Created a list of page URLs and used regex to filter API locations without updating page URLs",
+      "Filtered items on matching pages, creating shortcodes, saving time and improving website navigation.",
+      "Translated the API-generated text into three different languages, using the TranslatePress plugin to make the process easier and faster.",
+      "Implemented a location-finding algorithm that retrieves coordinates from the API.",
     ],
     imageURL: "flexistore.png",
     liveUrl: "https://www.flexistore.no/minilager/oslo/ensjo/",
+    skills: ["Vue.js", "SCSS", "REST API", "CI/CD", "WordPress"],
   },
   {
     id: 3,
@@ -85,71 +87,43 @@ export const worksData: IWorkData[] = [
     ],
     imageURL: "bakala.png",
     liveUrl: "https://www.bakalakuwait.com/",
-  },
-  {
-    id: 4,
-    title: "All About Access Elevator",
-    overview:
-      "The Access Elevator website was slow and outdated, with a UI that did not make sense for showing categories, subcategories, and documentation PDFs. The navigation was hard to notice, and there was no proper way to showcase products to customers. Pages were loading slowly, and images needed to be optimized. There were over 200 pages that needed to be recreated. Our team provided a solution by creating a fast and user-friendly website that met all of the client's needs.",
-    results: [
-      "The website speed was improved by 70%",
-      "Development time was reduced by 50%",
-      "The data structure became manageable for the client and developers",
+    skills: [
+      "Next.js",
+      "PWA",
+      "Flutter",
+      "Chakra UI",
+      "React Query",
+      "Firebase",
     ],
-    challenges: [
-      "The Access Elevator website was slow and outdated, with a UI that did not make sense for showing categories, subcategories, and documentation PDFs.",
-      "The navigation was hard to notice, and there was no proper way to showcase products to customers.",
-      "Pages were loading slowly, and images needed to be optimized.",
-      "There were over 200 pages that needed to be recreated.",
-    ],
-    solution: [
-      "Redesigned the website from scratch, with a modern and responsive design.",
-      "Restructured the categories and subcategories to make it easy for customers to find the products they are looking for.",
-      "Added a dedicated section for documentation PDFs, making it easy for customers to access and download relevant information.",
-      "Improved the website navigation by making it more intuitive and user-friendly.",
-      "Implemented an optimized image loading strategy, reducing page loading times and improving overall performance.",
-      "Streamlined the content creation process and recreated over 200 pages with a consistent and cohesive design.",
-    ],
-    imageURL: "accesselevator.png",
-    liveUrl: "https://www.allaboutaccess.com/",
   },
   {
     id: 5,
-    title: "All About Access Elevator",
+    title: "Multistep form",
     overview:
-      "The Access Elevator website was slow and outdated, with a UI that did not make sense for showing categories, subcategories, and documentation PDFs. The navigation was hard to notice, and there was no proper way to showcase products to customers. Pages were loading slowly, and images needed to be optimized. There were over 200 pages that needed to be recreated. Our team provided a solution by creating a fast and user-friendly website that met all of the client's needs.",
-    results: [
-      "The website speed was improved by 70%",
-      "Development time was reduced by 50%",
-      "The data structure became manageable for the client and developers",
-    ],
+      "The Multistep form portion involved creating a multistep form for dog adoption appointments from scratch. The form needed to be mobile-friendly. The data needed to be stored in a database. The form also needed to send email notifications to the user and the admin.",
+    results: [],
     challenges: [
-      "The Access Elevator website was slow and outdated, with a UI that did not make sense for showing categories, subcategories, and documentation PDFs.",
-      "The navigation was hard to notice, and there was no proper way to showcase products to customers.",
-      "Pages were loading slowly, and images needed to be optimized.",
-      "There were over 200 pages that needed to be recreated.",
+      "Client provided a word document with raw data and no structure, A long form was to be created from it",
+      "Form data had to be stored in a database",
+      "All steps had to be validated before moving to the next step",
+      "Send email notifications to the user and the admin",
     ],
     solution: [
-      "Redesigned the website from scratch, with a modern and responsive design.",
-      "Restructured the categories and subcategories to make it easy for customers to find the products they are looking for.",
-      "Added a dedicated section for documentation PDFs, making it easy for customers to access and download relevant information.",
-      "Improved the website navigation by making it more intuitive and user-friendly.",
-      "Implemented an optimized image loading strategy, reducing page loading times and improving overall performance.",
-      "Streamlined the content creation process and recreated over 200 pages with a consistent and cohesive design.",
+      "Created a data structure from the raw word document, and broken it down into JSON objects and arrays",
+      "Created reusuable templates and fields components with Vue.js",
+      "Integrated validation schema within JSON datastructure",
+      "Used SendGrid to send email notifications to the user and the admin",
     ],
-    imageURL: "accesselevator.png",
-    liveUrl: "https://www.allaboutaccess.com/",
+    imageURL: "form.png",
+    liveUrl: "https://sagadoodles.getonnet.dev/valpesoknad",
+    skills: ["Vue.js", "SCSS", "REST API", "SendGrid"],
   },
   {
-    id: 6,
+    id: 4,
     title: "Access Elevator",
     overview:
       "The Access Elevator website was slow and outdated, with a UI that did not make sense for showing categories, subcategories, and documentation PDFs. The navigation was hard to notice, and there was no proper way to showcase products to customers. Pages were loading slowly, and images needed to be optimized. There were over 200 pages that needed to be recreated. Our team provided a solution by creating a fast and user-friendly website that met all of the client's needs.",
-    results: [
-      "The website speed was improved by 70%",
-      "Development time was reduced by 50%",
-      "The data structure became manageable for the client and developers",
-    ],
+    results: [],
     challenges: [
       "The Access Elevator website was slow and outdated, with a UI that did not make sense for showing categories, subcategories, and documentation PDFs.",
       "The navigation was hard to notice, and there was no proper way to showcase products to customers.",
@@ -166,5 +140,6 @@ export const worksData: IWorkData[] = [
     ],
     imageURL: "accesselevator.png",
     liveUrl: "https://www.allaboutaccess.com/",
+    skills: ["HTML", "CSS", "JavaScript", "WordPress", "Woocommerce"],
   },
 ];

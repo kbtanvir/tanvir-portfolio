@@ -1,9 +1,11 @@
 import { Box } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
+const x = Math.floor(Math.random() * 120);
+
 export function ShootingStar() {
   // random number between 0 and 120
-  const x = Math.floor(Math.random() * 120);
+
   return (
     <>
       <motion.div

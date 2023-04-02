@@ -14,7 +14,7 @@ export default function CTASection() {
       p="20"
       bg="#212530"
     >
-      <HStack w="full" maxW={"1200px"}>
+      <HStack w="full" maxW={"1400px"}>
         <CTAForm />
 
         <animated.div
