@@ -108,10 +108,10 @@ export default function CTAForm() {
         <VStack maxW="full" alignItems={"start"} gap={commonStyle.componentGap}>
           {/* SPLASH IMAGE */}
           <VStack alignItems={"start"}>
-            <Text color="white" fontSize={"45px"} fontWeight={"700"} mb="-2">
+            <Text color="white" fontSize={[30, 45]} fontWeight={"700"} mb="-2">
               Lets talk about
             </Text>
-            <Text color="gold" fontSize={"45px"} fontWeight={"700"}>
+            <Text color="gold" fontSize={[30, 45]} fontWeight={"700"}>
               Your exciting project!
             </Text>
           </VStack>

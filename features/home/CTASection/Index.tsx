@@ -11,10 +11,11 @@ export default function CTASection() {
       position="relative"
       minH="1000px"
       w={"full"}
-      p="20"
+      px={[6, "20"]}
+      py={["20"]}
       bg="#212530"
     >
-      <HStack w="full" maxW={"1400px"}>
+      <HStack w="full" maxW={"1400px"} flexDir={["column", "row"]}>
         <CTAForm />
 
         <animated.div
@@ -22,6 +23,7 @@ export default function CTASection() {
             y: scrollYProgress.to([0, 1], [-1100, 0]),
             zIndex: 2,
             position: "relative",
+            paddingTop: "100px",
           }}
         >
           <Image

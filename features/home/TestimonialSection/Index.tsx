@@ -1,6 +1,7 @@
 import { Box, HStack, Text, VStack } from "@chakra-ui/react";
 import { animated, useScroll } from "@react-spring/web";
 import Image from "next/image";
+import { CoolText } from "../../../lib/atoms/CoolText/CoolText";
 import { StarsAnimation } from "../Welcome/StarsAnimation";
 import { ITestimonial, testimonialData } from "./data";
 
@@ -12,7 +13,7 @@ export default function TestimonialSection() {
       justifyContent={"space-between"}
       position="relative"
       minH="1200px"
-      py="200px"
+      py={[0, "200px"]}
       w="full"
       bg="linear-gradient(180deg, #212530 0%, #000000 27.6%, #13161C 78.12%, #212530 100%);"
     >
@@ -26,32 +27,44 @@ export default function TestimonialSection() {
           zIndex: 0,
         }}
       >
-        <CoolText text="Testimonial" />
+        <CoolText
+          bg={"linear-gradient(180deg, #2C3344 0%, rgba(44, 51, 68, 0) 100%)"}
+          text="Testimonial"
+        />
       </animated.div>
 
       <VStack position={"relative"} w="full">
-        <HStack position={"absolute"} zIndex={1} gap="200px" left="200px">
+        <HStack
+          position={["static", "absolute"]}
+          zIndex={1}
+          gap={[0, "200px"]}
+          left="200px"
+          flexDir={["column", "row"]}
+          w="full"
+        >
           <TestimonialItem data={testimonialData[0]} />
           <TestimonialItem data={testimonialData[1]} />
         </HStack>
         <HStack
-          position={"absolute"}
+          position={["static", "absolute"]}
           zIndex={1}
-          gap="200px"
+          gap={[10, "200px"]}
           top="280px"
           w="full"
           left="400px"
+          flexDir={["column", "row"]}
         >
           <TestimonialItem data={testimonialData[2]} />
           <TestimonialItem data={testimonialData[3]} />
         </HStack>
         <HStack
-          position={"absolute"}
+          position={["static", "absolute"]}
           zIndex={1}
-          gap="200px"
+          gap={[10, "200px"]}
           top="600px"
           left="600px"
           w="full"
+          flexDir={["column", "row"]}
         >
           <TestimonialItem data={testimonialData[4]} />
           <TestimonialItem data={testimonialData[5]} />
@@ -61,32 +74,21 @@ export default function TestimonialSection() {
   );
 }
 
-export function CoolText({ text }: { text: string }) {
-  return (
-    <Text
-      {...{
-        fontWeight: 700,
-        fontSize: "302px",
-        lineHeight: "365px",
-        textTransform: "uppercase",
-        background:
-          "linear-gradient(180deg, #2C3344 0%, rgba(44, 51, 68, 0) 100%)",
-        backgroundClip: "text",
-      }}
-      sx={{
-        WebkitTextFillColor: "transparent",
-      }}
-    >
-      {text}
-    </Text>
-  );
-}
-
 function TestimonialItem({ data }: { data: Partial<ITestimonial> }) {
   return (
-    <VStack position={"relative"} justifyContent="center" alignItems={"start"}>
-      <HStack gap="32px">
-        <Box width="82px" height="82px" position="relative">
+    <VStack
+      position={"relative"}
+      justifyContent="center"
+      alignItems={"start"}
+      p={[6, 0]}
+    >
+      <HStack gap={["6", "32px"]} alignItems={["start"]}>
+        <Box
+          width={[50, "82px"]}
+          height={[50, "82px"]}
+          position="relative"
+          top="1"
+        >
           <Image
             src={`/images/testimonial/${data.image}`}
             // width="82px"
@@ -95,7 +97,7 @@ function TestimonialItem({ data }: { data: Partial<ITestimonial> }) {
             alt="moon"
           />
         </Box>
-        <VStack alignItems={"start"} maxW="321px">
+        <VStack alignItems={"start"} maxW={[200, "321px"]} w="full">
           <Text
             {...{
               fontSize: "14px",

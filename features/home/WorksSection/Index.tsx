@@ -20,7 +20,7 @@ import { StarsAnimation } from "../Welcome/StarsAnimation";
 import { IWorkData, worksData } from "./data";
 
 const commonStyles = {
-  projectGap: [6, "800px"],
+  projectGap: [6, "400px"],
 };
 
 export default function WorksSection() {
@@ -32,11 +32,12 @@ export default function WorksSection() {
     <VStack
       justifyContent={["space-between"]}
       position="relative"
-      minH={["240vh", "1200px"]}
+      // minH={["240vh", "1200px"]}
       zIndex={2}
       pt="200px"
       pb={["200"]}
       w="full"
+      gap={[0, "200px"]}
       bg="linear-gradient(180deg, #212530 0%, #000000 27.6%, #13161C 78.12%, #212530 100%);"
     >
       <StarsAnimation />
@@ -46,7 +47,7 @@ export default function WorksSection() {
           style={{
             x: isLargerThan500 ? scrollYProgress.to([0, 1], [100, 500]) : 0,
             top: 0,
-            position: "absolute",
+            // position: "absolute",
             zIndex: 1,
             width: "100%",
           }}
@@ -63,7 +64,7 @@ export default function WorksSection() {
         <animated.div
           style={{
             right: scrollYProgress.to([0, 1], [-800, 1300]),
-            top: -200,
+            top: -0,
             position: "absolute",
           }}
         >
@@ -85,10 +86,10 @@ export default function WorksSection() {
         <animated.div
           style={{
             right: isLargerThan500
-              ? scrollYProgress.to([0, 1], [200, 1000])
+              ? scrollYProgress.to([0, 1], [-800, 500])
               : 0,
             top: 0,
-            position: "absolute",
+            position: "relative",
             zIndex: 1,
             width: "100%",
           }}
@@ -110,7 +111,7 @@ export default function WorksSection() {
           style={{
             left: isLargerThan500 ? scrollYProgress.to([0, 1], [-0, 500]) : 0,
             top: 0,
-            position: "absolute",
+            position: "relative",
             zIndex: 1,
             width: "100%",
           }}
@@ -202,7 +203,7 @@ function ProjectItem({ item }: { item: Partial<IWorkData> }) {
           {...{
             width: ["100%", "487px"],
             height: "276px",
-            position: ["relative", "absolute"],
+            position: ["relative"],
             zIndex: 0,
             borderRadius: "10px",
             overflow: "hidden",
