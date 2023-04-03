@@ -123,7 +123,7 @@ export function TextSwitchAnimation() {
         },
       }}
       w={[210, "500px"]}
-      height="30px"
+      height={["30px", 45]}
       position={"relative"}
       top="3px"
     >

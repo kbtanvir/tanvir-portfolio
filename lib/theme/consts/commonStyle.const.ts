@@ -18,4 +18,8 @@ export const commonStyle = {
   borderRadius: 15,
   rootPT: "80px",
   boxedContainerWidth: "1190px",
+  font35: {
+    base: "1.5rem !important",
+    md: "35px !important",
+  },
 };

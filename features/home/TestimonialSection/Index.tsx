@@ -2,7 +2,7 @@ import { Box, HStack, Text, VStack } from "@chakra-ui/react";
 import { animated, useScroll } from "@react-spring/web";
 import Image from "next/image";
 import { CoolText } from "../../../lib/atoms/CoolText/CoolText";
-import { StarsAnimation } from "../Welcome/StarsAnimation";
+import { StarsAnimation } from "../WelcomeSection/StarsAnimation";
 import { ITestimonial, testimonialData } from "./data";
 
 export default function TestimonialSection() {

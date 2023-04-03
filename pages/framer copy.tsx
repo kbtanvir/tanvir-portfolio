@@ -1,16 +1,14 @@
 import { Box, Text } from "@chakra-ui/react";
 import { motion, useTransform, useViewportScroll } from "framer-motion";
-import WelcomeSection from "../features/home/Welcome/Index";
 
 export default function App() {
   const { scrollYProgress } = useViewportScroll();
 
-  const translate = useTransform(scrollYProgress, [1,0], ["200px", "0px"]);
+  const translate = useTransform(scrollYProgress, [1, 0], ["200px", "0px"]);
   const rotation = useTransform(scrollYProgress, [0, 1], [0, 360]);
   return (
     <>
       <Box minH="300vh">
-       
         <motion.div
           style={{
             position: "fixed",

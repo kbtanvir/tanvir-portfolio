@@ -26,43 +26,40 @@ export default function WelcomeSection() {
 function MoonAnimation() {
   const { scrollYProgress } = useScroll();
   return (
-    <Stack right={[0]} bottom={[0, 450]} position={"absolute"} zIndex="2">
-      <animated.div
-        style={{
-          translateY: scrollYProgress.to([0, 1], [0, 600]),
+    <animated.div
+      style={{
+        translateY: scrollYProgress.to([0, 1], [0, 600]),
+        right: "0",
+        position: "absolute",
+      }}
+    >
+      <Stack
+        position="relative"
+        width={[70, "120px"]}
+        height={[70, "120px"]}
+        zIndex={1}
+        bottom={{
+          base: "-15vh",
+          lg: "10vh",
+        }}
+        right={{
+          base: "10vw",
         }}
       >
-        <Stack
-          position="absolute"
-          width={[70, "120px"]}
-          height={[70, "120px"]}
-          right={[100, `680px`]}
-          bottom={[150, -39]}
-          zIndex={2}
-        >
-          <Image src="/welcome/moon.svg" layout="fill" alt="moon" />
-        </Stack>
-
-        <Stack
-          w="1311px"
-          zIndex={0}
-          h="454px"
-          position="absolute"
-          right="150px"
-          top={["-120px"]}
-          display={["none", "block"]}
-          bg="radial-gradient(50% 50% at 50% 50%, rgba(79, 237, 234, 0.228) 0%, rgba(187, 55, 208, 0) 94.27%);"
-        />
-      </animated.div>
-    </Stack>
+        <Image src="/welcome/moon.svg" layout="fill" alt="moon" />
+      </Stack>
+    </animated.div>
   );
 }
 function MountainAnimation() {
   const { scrollYProgress } = useScroll();
   return (
     <Stack
-      right={[0, "150px"]}
-      bottom={[0, "20"]}
+      right={{ base: 0, xl: 150 }}
+      bottom={{
+        base: 0,
+        xl: "10px",
+      }}
       position={"absolute"}
       zIndex="2"
     >
@@ -83,7 +80,12 @@ function MountainAnimation() {
 }
 function TerrainAnimation() {
   return (
-    <Stack position={"absolute"} zIndex="3" bottom={[-4, "-40"]} w="full">
+    <Stack
+      position={"absolute"}
+      zIndex="3"
+      bottom={{ base: -2, xl: -40 }}
+      w="full"
+    >
       <TerrainSVG />
     </Stack>
   );

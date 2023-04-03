@@ -21,7 +21,7 @@ export default function CTASection() {
         <animated.div
           style={{
             y: scrollYProgress.to([0, 1], [-1100, 0]),
-            zIndex: 2,
+            zIndex: 0,
             position: "relative",
             paddingTop: "100px",
           }}

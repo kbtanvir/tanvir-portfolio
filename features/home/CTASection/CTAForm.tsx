@@ -104,7 +104,13 @@ export default function CTAForm() {
 
   return (
     <>
-      <VStack w={"full"} alignItems="stretch" gap="23px">
+      <VStack
+        w={"full"}
+        alignItems="stretch"
+        gap="23px"
+        position="relative"
+        zIndex={1}
+      >
         <VStack maxW="full" alignItems={"start"} gap={commonStyle.componentGap}>
           {/* SPLASH IMAGE */}
           <VStack alignItems={"start"}>

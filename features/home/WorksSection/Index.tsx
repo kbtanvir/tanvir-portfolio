@@ -16,11 +16,11 @@ import { useState } from "react";
 import { AiOutlineLink } from "react-icons/ai";
 import { CoolText } from "../../../lib/atoms/CoolText/CoolText";
 import { CustomDrawer } from "../../../lib/atoms/Drawer/CustomDrawer";
-import { StarsAnimation } from "../Welcome/StarsAnimation";
+import { StarsAnimation } from "../WelcomeSection/StarsAnimation";
 import { IWorkData, worksData } from "./data";
 
 const commonStyles = {
-  projectGap: [6, "400px"],
+  projectGap: [6, "300px"],
 };
 
 export default function WorksSection() {
@@ -35,9 +35,9 @@ export default function WorksSection() {
       // minH={["240vh", "1200px"]}
       zIndex={2}
       pt="200px"
-      pb={["200"]}
+      pb={[0, "200"]}
       w="full"
-      gap={[0, "200px"]}
+      gap={[6, "200px"]}
       bg="linear-gradient(180deg, #212530 0%, #000000 27.6%, #13161C 78.12%, #212530 100%);"
     >
       <StarsAnimation />
@@ -64,7 +64,7 @@ export default function WorksSection() {
         <animated.div
           style={{
             right: scrollYProgress.to([0, 1], [-800, 1300]),
-            top: -0,
+            top: -50,
             position: "absolute",
           }}
         >
@@ -76,7 +76,7 @@ export default function WorksSection() {
         <animated.div
           style={{
             left: scrollYProgress.to([0, 1], [-800, 1300]),
-            top: -200,
+            top: -50,
             position: "absolute",
             width: "100%",
           }}
@@ -123,8 +123,8 @@ export default function WorksSection() {
         </animated.div>
         <animated.div
           style={{
-            right: scrollYProgress.to([0, 1], [-800, 500]),
-            top: -200,
+            right: scrollYProgress.to([0, 1], [-800, 1300]),
+            top: -70,
             position: "absolute",
           }}
         >
