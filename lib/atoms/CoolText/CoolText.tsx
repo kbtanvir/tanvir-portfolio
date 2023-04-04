@@ -17,3 +17,5 @@ export function CoolText({ text, bg }: { text: string; bg?: string }) {
     </Text>
   );
 }
+
+

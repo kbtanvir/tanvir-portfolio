@@ -31,19 +31,19 @@ export const globalStyle = {
     "html, body": {
       overflowX: "hidden",
     },
-    a: {
-      color: "teal.500",
-    },
-    h3: {
-      fontSize: "24px",
-      fontWeight: 700,
-      marginBottom: "0px",
-      padding: 0,
-    },
-    h4: {
-      fontWeight: "bold",
-      fontSize: "2xl",
-    },
+    // a: {
+    //   color: "teal.500",
+    // },
+    // h3: {
+    //   fontSize: "24px",
+    //   fontWeight: 700,
+    //   marginBottom: "0px",
+    //   padding: 0,
+    // },
+    // h4: {
+    //   fontWeight: "bold",
+    //   fontSize: "2xl",
+    // },
 
     // // AUTHLAYOUT
     ".auth-layout": {

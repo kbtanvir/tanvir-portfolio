@@ -8,127 +8,117 @@ import {
   Text,
   VStack,
   useDisclosure,
-  useMediaQuery,
 } from "@chakra-ui/react";
-import { animated, useScroll } from "@react-spring/web";
+import { animated } from "@react-spring/web";
 import Image from "next/image";
 import { useState } from "react";
 import { AiOutlineLink } from "react-icons/ai";
 import { CoolText } from "../../../lib/atoms/CoolText/CoolText";
 import { CustomDrawer } from "../../../lib/atoms/Drawer/CustomDrawer";
+import { useScrollTo } from "../../../lib/hooks/useScrollTo";
 import { StarsAnimation } from "../WelcomeSection/StarsAnimation";
 import { IWorkData, worksData } from "./data";
+import { piStyle, styles } from "./styles";
 
-const commonStyles = {
-  projectGap: [6, "300px"],
-};
+function LiveToWork() {
+  const { scrollTo, lg } = useScrollTo();
+  return (
+    <VStack {...styles.coolTextWrapper}>
+      <animated.div
+        style={{
+          x: scrollTo({
+            xl: [1100, 0],
+          }),
+        }}
+      >
+        <CoolText text="Live" />
+      </animated.div>
+      <animated.div
+        style={{
+          x: scrollTo({
+            xl: [-1300, 500],
+          }),
+        }}
+      >
+        <CoolText text="To" />
+      </animated.div>
+      <animated.div
+        style={{
+          x: scrollTo({
+            xl: [1400, -200],
+          }),
+        }}
+      >
+        <CoolText text="Work" />
+      </animated.div>
+    </VStack>
+  );
+}
 
 export default function WorksSection() {
-  const { scrollYProgress } = useScroll();
-  const [isLargerThan800] = useMediaQuery("(min-width: 800px)");
-  const [isLargerThan500] = useMediaQuery("(min-width: 500px)");
+  const { scrollTo, lg } = useScrollTo();
 
   return (
-    <VStack
-      justifyContent={["space-between"]}
-      position="relative"
-      // minH={["240vh", "1200px"]}
-      zIndex={2}
-      pt="200px"
-      pb={[0, "200"]}
-      w="full"
-      gap={[6, "200px"]}
-      bg="linear-gradient(180deg, #212530 0%, #000000 27.6%, #13161C 78.12%, #212530 100%);"
-    >
+    <VStack {...styles.sectionWrapper}>
       <StarsAnimation />
+      {!lg && (
+        <VStack {...styles.sectionTitleWrapper}>
+          <Text {...styles.sectionTitle}>Works</Text>
+          <Box {...piStyle.underline} />
+        </VStack>
+      )}
+
+      <LiveToWork />
       {/* ROW 1 */}
+
       <HStack position={"relative"} w="full">
         <animated.div
           style={{
-            x: isLargerThan500 ? scrollYProgress.to([0, 1], [100, 500]) : 0,
-            top: 0,
-            // position: "absolute",
-            zIndex: 1,
+            x: scrollTo({
+              xl: [-200, 600],
+            }),
             width: "100%",
           }}
         >
-          <HStack
-            gap={commonStyles.projectGap}
-            flexDir={["column", "row"]}
-            w={["full", "auto"]}
-          >
+          <HStack {...styles.rowWrapper}>
             <ProjectItem item={worksData[0]} />
             <ProjectItem item={worksData[1]} />
           </HStack>
         </animated.div>
-        <animated.div
-          style={{
-            right: scrollYProgress.to([0, 1], [-800, 1300]),
-            top: -50,
-            position: "absolute",
-          }}
-        >
-          <CoolText text="Live" />
-        </animated.div>
       </HStack>
-      {/* ROW 2 */}
+
+      {/*  ROW 2 */}
+
       <HStack position={"relative"} w="full">
         <animated.div
           style={{
-            left: scrollYProgress.to([0, 1], [-800, 1300]),
-            top: -50,
-            position: "absolute",
+            x: scrollTo({
+              xl: [300, -500],
+            }),
             width: "100%",
           }}
         >
-          <CoolText text="To" />
-        </animated.div>
-        <animated.div
-          style={{
-            right: isLargerThan500
-              ? scrollYProgress.to([0, 1], [-800, 500])
-              : 0,
-            top: 0,
-            position: "relative",
-            zIndex: 1,
-            width: "100%",
-          }}
-        >
-          <HStack
-            gap={commonStyles.projectGap}
-            flexDir={["column", "row"]}
-            w={["full", "auto"]}
-            alignItems={["start", "flex-start"]}
-          >
+          <HStack {...styles.rowWrapper}>
             <ProjectItem item={worksData[2]} />
             <ProjectItem item={worksData[3]} />
           </HStack>
         </animated.div>
       </HStack>
+
       {/* ROW 3 */}
+
       <HStack position={"relative"} w="full">
         <animated.div
           style={{
-            left: isLargerThan500 ? scrollYProgress.to([0, 1], [-0, 500]) : 0,
-            top: 0,
-            position: "relative",
-            zIndex: 1,
+            x: scrollTo({
+              xl: [-200, 500],
+            }),
             width: "100%",
           }}
         >
-          <HStack gap={commonStyles.projectGap}>
+          <HStack {...styles.rowWrapper}>
             <ProjectItem item={worksData[4]} />
-            {/* <ProjectItem item={worksData[5]} /> */}
           </HStack>
-        </animated.div>
-        <animated.div
-          style={{
-            right: scrollYProgress.to([0, 1], [-800, 1300]),
-            top: -70,
-            position: "absolute",
-          }}
-        >
-          <CoolText text="Work" />
         </animated.div>
       </HStack>
     </VStack>
@@ -138,6 +128,7 @@ export default function WorksSection() {
 function ProjectItem({ item }: { item: Partial<IWorkData> }) {
   const [hover, sethover] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <>
       <CustomDrawer
@@ -147,87 +138,16 @@ function ProjectItem({ item }: { item: Partial<IWorkData> }) {
       />
       <VStack
         onClick={onOpen}
-        cursor={"pointer"}
-        position={"relative"}
-        justifyContent="center"
-        alignItems={"start"}
-        w={["full", "auto"]}
         onMouseEnter={() => sethover(true)}
         onMouseLeave={() => sethover(false)}
-        px={[6, 0]}
+        {...piStyle.itemWrapper}
       >
-        <Box
-          {...{
-            transform: hover
-              ? "translateX(0px)"
-              : ["translateX(0px)", "translateX(-50px)"],
-            transition: "all 0.7s ease-in-out",
-            zIndex: 2,
-            background: hover ? "rgba(0, 0, 0, 0.7)" : "transparent",
-            backdropFilter: hover ? "blur(10px)" : "none",
-            position: "absolute",
-            minW: "300px",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            padding: "20px",
-            paddingBottom: "30px",
-            paddingRight: "30px",
-          }}
-        >
-          <Text
-            color="white"
-            fontSize={"24px"}
-            position="relative"
-            zIndex={1}
-            fontWeight="700"
-            textTransform={"uppercase"}
-            pb="3"
-          >
-            {item.title}
-          </Text>
-
-          <Box
-            bg="#FFD12D"
-            h="3px"
-            border={"none"}
-            position="relative"
-            zIndex={2}
-            w="100px"
-            mb="10px"
-            transition={"all 0.3s ease-in"}
-            transitionDelay="0.3s"
-          />
+        <Box {...piStyle.titleWrapper(hover)}>
+          <Text {...piStyle.titleIdle}>{item.title}</Text>
+          <Box {...piStyle.underline} />
         </Box>
-        <Stack
-          {...{
-            width: ["100%", "487px"],
-            height: "276px",
-            position: ["relative"],
-            zIndex: 0,
-            borderRadius: "10px",
-            overflow: "hidden",
-            transform: hover
-              ? "translateX(-0px)"
-              : ["translateX(0px)", "translateX(40px)"],
-            transition: "all 0.9s ease-in-out",
-          }}
-        >
-          <Box
-            {...{
-              width: "101%",
-              height: "101%",
-              position: "absolute",
-              zIndex: 1,
-              background: `linear-gradient(180deg, rgb(9 8 20 / 86%) 0%, rgb(0 0 0 / 24%) 100%)`,
-              opacity: hover ? 0 : 1,
-              left: ["0", "-1"],
-              top: "-1",
-              transform: hover ? "translateY(-600px)" : "translateY(0)",
-              transition:
-                "transform 0.3s ease-in-out, opacity 0.6s ease-in-out",
-            }}
-          />
+        <Stack {...piStyle.imageWrapper(hover)}>
+          <Box {...piStyle.imageOverLay(hover)} />
 
           <Image
             src={item.imageURL ? `/images/works/${item.imageURL}` : ""}
@@ -235,9 +155,6 @@ function ProjectItem({ item }: { item: Partial<IWorkData> }) {
             alt="moon"
             objectFit="cover"
             objectPosition="center"
-            style={{
-              zIndex: 0,
-            }}
           />
         </Stack>
       </VStack>
@@ -247,7 +164,13 @@ function ProjectItem({ item }: { item: Partial<IWorkData> }) {
 
 function SingleItemModal({ item }: { item: Partial<IWorkData> }) {
   return (
-    <VStack w="full" justifyContent={"start"} alignItems={"start"} gap="4">
+    <VStack
+      w="full"
+      justifyContent={"start"}
+      alignItems={"start"}
+      gap="4"
+      pt={[16]}
+    >
       {/* IMAGE */}
       <Box position="relative" height="300px" w="full">
         <Image
@@ -258,9 +181,9 @@ function SingleItemModal({ item }: { item: Partial<IWorkData> }) {
           objectFit="cover"
         />
       </Box>
-      <HStack pt="4">
+      <HStack pt="4" flexWrap={"wrap"} gap="4" justifyContent={"start"}>
         {item.skills!.map((text, i) => (
-          <Tag key={i} variant="outline" size="lg" mr="2" color="gold">
+          <Tag key={i} variant="outline" size="lg" color="gold">
             {text}
           </Tag>
         ))}
