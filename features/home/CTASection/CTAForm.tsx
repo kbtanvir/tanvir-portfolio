@@ -1,11 +1,11 @@
-import { Box, Button, Text, VStack } from "@chakra-ui/react";
+import { Button, Text, VStack } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormProvider, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import * as yup from "yup";
 import { FormFieldHandler } from "../../../lib/atoms/Form/FormFieldHandler";
 import { FormField } from "../../../lib/hooks/useHookForm";
-import { commonStyle } from "../../../lib/theme/consts/commonStyle.const";
+import { styles } from "./styles";
 
 type IformData = {
   name: string;
@@ -104,64 +104,53 @@ export default function CTAForm() {
 
   return (
     <>
-      <VStack
-        w={"full"}
-        alignItems="stretch"
-        gap="23px"
-        position="relative"
-        zIndex={1}
-      >
-        <VStack maxW="full" alignItems={"start"} gap={commonStyle.componentGap}>
-          {/* SPLASH IMAGE */}
-          <VStack alignItems={"start"}>
-            <Text color="white" fontSize={[30, 45]} fontWeight={"700"} mb="-2">
-              Lets talk about
-            </Text>
-            <Text color="gold" fontSize={[30, 45]} fontWeight={"700"}>
-              Your exciting project!
-            </Text>
-          </VStack>
-          {/* FORM  */}
-          <Box w="full" maxW="500px">
-            <FormProvider {...formService}>
-              <form onSubmit={formService.handleSubmit(onSubmit)}>
+      <VStack {...styles.formWrapper}>
+        {/* FORM  */}
+        <VStack alignItems={"start"}>
+          <Text color="white" fontSize={[30, 45]} fontWeight={"700"} mb="-2">
+            Lets talk about
+          </Text>
+          <Text color="gold" fontSize={[30, 45]} fontWeight={"700"}>
+            Your exciting project!
+          </Text>
+        </VStack>
+        <FormProvider {...formService}>
+          <form onSubmit={formService.handleSubmit(onSubmit)}>
+            <VStack
+              gap="24px"
+              width="full"
+              pb="40px"
+              transition={"all 0.3s ease-in-out"}
+            >
+              {formFields.map((fields, index) => (
                 <VStack
-                  gap="24px"
-                  width="full"
-                  pb="40px"
-                  transition={"all 0.3s ease-in-out"}
+                  key={index}
+                  w="full"
+                  alignItems="stretch"
+                  spacing="24px"
                 >
-                  {formFields.map((fields, index) => (
-                    <VStack
-                      key={index}
-                      w="full"
-                      alignItems="stretch"
-                      spacing="24px"
-                    >
-                      {fields.map(field => (
-                        <FormFieldHandler key={field.name} field={field} />
-                      ))}
-                    </VStack>
+                  {fields.map(field => (
+                    <FormFieldHandler key={field.name} field={field} />
                   ))}
                 </VStack>
+              ))}
+            </VStack>
 
-                {/* BUTTONS */}
+            {/* BUTTONS */}
 
-                <Button
-                  variant={"outline"}
-                  textTransform={"capitalize"}
-                  fontSize={"18px"}
-                  fontWeight={"400"}
-                  type={"submit"}
-                  width="full"
-                  // isLoading={formMutation.isLoading}
-                >
-                  submit
-                </Button>
-              </form>
-            </FormProvider>
-          </Box>
-        </VStack>
+            <Button
+              variant={"outline"}
+              textTransform={"capitalize"}
+              fontSize={"18px"}
+              fontWeight={"400"}
+              type={"submit"}
+              width="full"
+              // isLoading={formMutation.isLoading}
+            >
+              submit
+            </Button>
+          </form>
+        </FormProvider>
       </VStack>
     </>
   );

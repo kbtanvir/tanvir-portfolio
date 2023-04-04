@@ -1,18 +1,12 @@
 import { Box, HStack, Text, VStack } from "@chakra-ui/react";
 import { animated, useScroll } from "@react-spring/web";
 import { CoolText } from "../../../lib/atoms/CoolText/CoolText";
+import { styles } from "./styles";
 
 export default function SkillSection() {
   const { scrollYProgress } = useScroll();
   return (
-    <VStack
-      justifyContent={"space-between"}
-      position="relative"
-      minH="1000px"
-      py="200px"
-      w="full"
-      bg="#212530"
-    >
+    <VStack {...styles.sectionWrapper}>
       <HStack position={"relative"} w="full">
         <animated.div
           style={{
@@ -26,16 +20,7 @@ export default function SkillSection() {
             bg="linear-gradient(180deg, #0d111c 0%, rgba(44, 51, 68, 0) 100%)"
           />
         </animated.div>
-        <HStack
-          right="240"
-          position={["static", "absolute"]}
-          top="40"
-          gap={[10, "100px"]}
-          px={["6", 0]}
-          display={["grid", "flex"]}
-          gridTemplateColumns={["1fr 1fr", "1fr 1fr 1fr 1fr"]}
-          placeItems={["start"]}
-        >
+        <HStack {...styles.skillListWrapper}>
           <SkillList
             title="Frontend"
             list={[
@@ -66,6 +51,16 @@ export default function SkillSection() {
               "Rest API",
               "Sendgrid / Sendinblue",
               "JWT",
+            ]}
+          />
+          <SkillList
+            title="UX/UI"
+            list={[
+              "Figma",
+              "Illustrator",
+              "Photoshop",              
+              "Affinity",
+              "Manga Studio",
             ]}
           />
           <SkillList

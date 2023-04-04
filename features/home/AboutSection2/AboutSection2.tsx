@@ -1,55 +1,31 @@
-import { HStack, Stack, Text } from "@chakra-ui/react";
+import { Grid, HStack, Stack, Text } from "@chakra-ui/react";
 import { animated, useScroll } from "@react-spring/web";
 import Image from "next/image";
+import { styles } from "./styles";
 
 export default function AboutSection2() {
   const { scrollYProgress } = useScroll();
 
   return (
-    <HStack
-      justifyContent={"space-between"}
-      position="relative"
-      minH="1000px"
-      w="full"
-      px={[6, "20"]}
-      pb={["0"]}
-      bg="#212530"
-      zIndex={1}
-      flexDir={["column-reverse", "row"]}
-    >
+    <Grid {...styles.grid}>
       <animated.div
         style={{
           y: scrollYProgress.to([0, 1], [600, -100]),
         }}
       >
-        <Stack zIndex={2} position="relative" top={[-20, 0]}>
-          <Image
-            src="/about/balance.png"
-            width={"702px"}
-            height={"702px"}
-            alt="moon"
-          />
+        <Stack {...styles.imageWrapper}>
+          <Image src="/about/balance.png" layout="fill" alt="moon" />
         </Stack>
       </animated.div>
 
       <animated.div
         style={{
           translateY: scrollYProgress.to([0, 1], [0, 600]),
+          width: "100%",
         }}
       >
-        <Stack maxW={"609px"} position={"relative"} top={[-100, 0]}>
-          <Text
-            fontSize={[25, "35px"]}
-            lineHeight="1.2"
-            color="white"
-            sx={{
-              "& span": {
-                color: "#FFD12D",
-                fontSize: [25, "35px"],
-                lineHeight: "1.2",
-              },
-            }}
-          >
+        <Stack {...styles.textWrapper}>
+          <Text {...styles.aboutText}>
             I believe that our creations and our craftsmanship reflect our
             identity and values. Thats why I always aim to deliver Perfection in
             everything I do. Whether it`s writing clean and scalable code that
@@ -60,6 +36,6 @@ export default function AboutSection2() {
           </Text>
         </Stack>
       </animated.div>
-    </HStack>
+    </Grid>
   );
 }

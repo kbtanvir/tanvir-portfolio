@@ -39,7 +39,7 @@ export const worksData: IWorkData[] = [
   },
   {
     id: 2,
-    title: "flexistore",
+    title: "Flexistore Listing",
     overview:
       "Our client, a leading global warehousing company, approached us with a unique challenge. They wanted to integrate an external global warehouse API into their existing WordPress website to showcase their storage facilities in a single listing UI with search capabilities. However, the API job was not straightforward, as there were multiple APIs for managing store locations, rooms, facilities, and discount codes, all linked to one another with a one-to-many relation.",
     results: [

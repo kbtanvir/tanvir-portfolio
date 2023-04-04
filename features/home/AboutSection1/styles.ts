@@ -8,16 +8,15 @@ export const styles = {
     w: "full",
     zIndex: "2",
     px: [6, "20"],
-    pt: [10, "200px"],
+    pt: {
+      base: "10vh",
+      md: "20vh",
+    },
     pb: {
       base: "10",
       lg: "40vh",
     },
     bg: "#212530",
-    templateColumns: {
-      base: "1fr",
-      lg: "repeat(auto-fit, minmax(500px, 1fr))",
-    },
   },
   textWrapper: {
     pt: {
@@ -25,10 +24,10 @@ export const styles = {
       md: 0,
     },
     position: "relative",
-    top: {
-      md: "-10vh",
-      xl: "10vh",
-    },
+    // top: {
+    //   md: "-10vh",
+    //   xl: "10vh",
+    // },
   },
   aboutText: {
     fontSize: commonStyle.font35,
@@ -61,6 +60,7 @@ export const styles = {
       //   xl: 0,
     },
   },
+
   skyWrapper: {
     position: "relative",
     h: {

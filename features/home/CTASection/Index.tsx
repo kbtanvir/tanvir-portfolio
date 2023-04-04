@@ -2,20 +2,13 @@ import { HStack } from "@chakra-ui/react";
 import { animated, useScroll } from "@react-spring/web";
 import Image from "next/image";
 import CTAForm from "./CTAForm";
+import { styles } from "./styles";
 
 export default function CTASection() {
   const { scrollYProgress } = useScroll();
   return (
-    <HStack
-      justifyContent={"center"}
-      position="relative"
-      minH="1000px"
-      w={"full"}
-      px={[6, "20"]}
-      py={["20"]}
-      bg="#212530"
-    >
-      <HStack w="full" maxW={"1400px"} flexDir={["column", "row"]}>
+    <HStack {...styles.sectionWrapper}>
+      <HStack {...styles.container}>
         <CTAForm />
 
         <animated.div

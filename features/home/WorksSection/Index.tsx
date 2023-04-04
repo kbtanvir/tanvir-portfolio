@@ -71,11 +71,11 @@ export default function WorksSection() {
       <LiveToWork />
       {/* ROW 1 */}
 
-      <HStack position={"relative"} w="full">
+      <HStack position={"relative"} w="full" justifyContent={"center"}>
         <animated.div
           style={{
             x: scrollTo({
-              xl: [-200, 600],
+              xl: [-200, 200],
             }),
             width: "100%",
           }}
@@ -93,7 +93,7 @@ export default function WorksSection() {
         <animated.div
           style={{
             x: scrollTo({
-              xl: [300, -500],
+              xl: [300, -300],
             }),
             width: "100%",
           }}
@@ -111,7 +111,7 @@ export default function WorksSection() {
         <animated.div
           style={{
             x: scrollTo({
-              xl: [-200, 500],
+              xl: [-100, 300],
             }),
             width: "100%",
           }}

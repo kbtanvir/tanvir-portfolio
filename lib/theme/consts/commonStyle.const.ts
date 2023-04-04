@@ -20,7 +20,8 @@ export const commonStyle = {
   boxedContainerWidth: "1190px",
   font35: {
     base: "1.5rem !important",
-    md: "35px !important",
+    md: "30px !important",
+    // xl: "35px !important",
   },
   sectionTitle: {
     fontSize: ["25px !important", "2.5rem !important"],

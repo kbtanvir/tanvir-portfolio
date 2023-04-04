@@ -7,7 +7,13 @@ export default function AboutSection1() {
   const { scrollYProgress } = useScroll();
 
   return (
-    <Grid {...styles.grid}>
+    <Grid
+      {...styles.grid}
+      templateColumns={{
+        base: "1fr",
+        lg: "repeat(auto-fit, minmax(500px, 1fr))",
+      }}
+    >
       <Stack {...styles.textWrapper}>
         <animated.div
           style={{

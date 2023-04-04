@@ -3,7 +3,7 @@ import { commonStyle } from "../../../lib/theme/consts/commonStyle.const";
 
 export const styles = {
   sectionWrapper: {
-    justifyContent: "space-between",
+    // justifyContent: "space-between",
     position: "relative",
     // minH: ["240vh", "1200px"],
     zIndex: 2,
@@ -29,11 +29,15 @@ export const styles = {
     position: "absolute",
     top: "10em",
     w: "full",
+    display: {
+      base: "none",
+      xl: "flex",
+    },
   },
   rowWrapper: {
     gap: {
       base: 6,
-      xl: "5vw",
+      xl: "0em",
     },
     display: {
       base: "grid",
@@ -43,10 +47,8 @@ export const styles = {
       md: "repeat(2, 1fr)",
     },
     placeItems: {
-      base: "start",
+      base: "center",
     },
-    alignItems: "start",
-    justifyItems: "start",
 
     zIndex: 1,
   },
@@ -68,14 +70,19 @@ export const piStyle = {
   titleWrapper: (hover: boolean) =>
     ({
       transform: {
-        lg: hover
+        xl: hover
           ? "translateX(0px)"
           : ["translateX(0px)", "translateX(-50px)"],
       },
       transition: "all 0.7s ease-in-out",
       zIndex: 2,
-      background: hover ? "rgba(0, 0, 0, 0.7)" : "transparent",
-      backdropFilter: hover ? "blur(10px)" : "none",
+      background: {
+        base: hover ? "rgba(0, 0, 0, 0.7)" : "transparent",
+      },
+      backdropFilter: {
+        base: "blur(1px)",
+        xl: hover ? "blur(10px)" : "blur(0px)",
+      },
       position: "absolute",
       maxW: "300px",
       w: "full",
@@ -85,7 +92,7 @@ export const piStyle = {
       padding: "20px",
       paddingBottom: "30px",
       paddingRight: "30px",
-    } as StyleProps as StyleProps),
+    } as StyleProps),
   underline: {
     bg: "#ffd12d",
     h: "3px",
