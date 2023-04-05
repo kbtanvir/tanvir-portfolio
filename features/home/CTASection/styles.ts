@@ -2,13 +2,14 @@ import { StyleProps } from "@chakra-ui/react";
 
 export const styles = {
   sectionWrapper: {
-    justifyContent: "center",
+    justifyContent: "space-between",
     position: "relative",
     minH: "1000px",
     w: "full",
-    px: [6, "20"],
-    py: ["20"],
+    px: 6,
+    pt: ["20"],
     bg: "#212530",
+    gap: "10vh",
   },
   container: {
     w: "full",
@@ -37,14 +38,23 @@ export const styles = {
   },
   rightImage: {
     paddingTop: {
-      base: "20px",
+      base: "20vh",
       xl: "100px",
     },
     position: "relative",
   },
-  footerText:{
-    
-  }
+  footerWrap: {
+    pb: {
+      base: "40px",
+    },
+  },
+  footerText: {
+    color: "gray.500",
+    cursor: "pointer",
+    _hover: {
+      color: "gold",
+    },
+  },
 } as {
   [key: string]: StyleProps;
 };

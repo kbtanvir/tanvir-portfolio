@@ -1,6 +1,7 @@
 import { Box, HStack, Text, VStack } from "@chakra-ui/react";
 import { animated, useScroll } from "@react-spring/web";
 import Image from "next/image";
+import Link from "next/link";
 import CTAForm from "./CTAForm";
 import { styles } from "./styles";
 
@@ -28,21 +29,44 @@ export default function CTASection() {
           </Box>
         </animated.div>
       </HStack>
-      <Footer></Footer>
+      <Footer/>
     </VStack>
   );
 }
 
-
 function Footer() {
   return (
-    <HStack {...styles.footer}>
-      <Text {...styles.footerText}>
-        Made with ❤️ by{" "}
-        <Text as="a" href="https://twitter.com/AdityaBhargava_" {...styles.link}>
-          K.B. Tanvir
-        </Text>
+    <VStack {...styles.footerWrap}>
+      <HStack>
+        {[
+          {
+            text: "Github",
+            link: "https://github.com/kbtanvir",
+          },
+          {
+            text: "Linkedin",
+            link: "https://www.linkedin.com/in/kbtanvir/",
+          },
+
+          {
+            text: "Email",
+            link: "mailto:tanvirkhaan004@gmail.com",
+          },
+          {
+            text: "Resume",
+            link: "mailto:tanvirkhaan004@gmail.com",
+          },
+        ].map((item, i) => (
+          <Link key={i} href={item.link} target="_blank">
+            <Text {...styles.footerText} textDecoration={"underline"}>
+              {item.text}
+            </Text>
+          </Link>
+        ))}
+      </HStack>
+      <Text {...styles.footerText} textTransform={"uppercase"}>
+        © {new Date().getFullYear()} KB Tanvir
       </Text>
-    </HStack>
+    </VStack>
   );
 }
