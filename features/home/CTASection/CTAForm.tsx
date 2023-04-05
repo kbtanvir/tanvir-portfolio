@@ -47,29 +47,38 @@ export default function CTAForm() {
         name: "name",
         placeholder: t("What should I call you?"),
         type: "text",
-        label: t("Name"),
+        // label: t("Name"),
         validation: () => yup.string().required(t("Field is required")),
       },
       {
         name: "email",
         placeholder: t("Enter your email address"),
         type: "text",
-        label: t("Email"),
-        validation: () => yup.string().required(t("Field is required")),
+        // label: t("Email"),
+        validation: () =>
+          yup
+            .string()
+            .email(t("Invalid email"))
+            .required(t("Field is required")),
       },
       {
         name: "subject",
         placeholder: t("What shall we talk about?"),
         type: "text",
-        label: t("Name"),
+        // label: t("Name"),
         validation: () => yup.string().required(t("Field is required")),
       },
       {
         name: "message",
         placeholder: t("What's on your mind?"),
         type: "textarea",
-        label: t("Name"),
-        validation: () => yup.string().required(t("Field is required")),
+        // label: t("Name"),
+        validation: () =>
+          yup
+            .string()
+            .max(500, "Message is too long")
+            .required(t("Field is required")),
+        max: 500,
       },
     ],
     // STEP 2
@@ -107,10 +116,10 @@ export default function CTAForm() {
       <VStack {...styles.formWrapper}>
         {/* FORM  */}
         <VStack alignItems={"start"}>
-          <Text color="white" fontSize={[30, 45]} fontWeight={"700"} mb="-2">
+          <Text {...styles.formTitle} color="white" mb="-2">
             Lets talk about
           </Text>
-          <Text color="gold" fontSize={[30, 45]} fontWeight={"700"}>
+          <Text color="gold" {...styles.formTitle}>
             Your exciting project!
           </Text>
         </VStack>
@@ -123,12 +132,7 @@ export default function CTAForm() {
               transition={"all 0.3s ease-in-out"}
             >
               {formFields.map((fields, index) => (
-                <VStack
-                  key={index}
-                  w="full"
-                  alignItems="stretch"
-                  spacing="24px"
-                >
+                <VStack key={index} w="full" alignItems="stretch" gap="24px">
                   {fields.map(field => (
                     <FormFieldHandler key={field.name} field={field} />
                   ))}

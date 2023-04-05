@@ -24,10 +24,6 @@ export const styles = {
       md: 0,
     },
     position: "relative",
-    // top: {
-    //   md: "-10vh",
-    //   xl: "10vh",
-    // },
   },
   aboutText: {
     fontSize: commonStyle.font35,

@@ -1,4 +1,4 @@
-import { VStack } from "@chakra-ui/react";
+import { Text, VStack } from "@chakra-ui/react";
 
 import AboutSection1 from "../features/home/AboutSection1/Index";
 import AboutSection2 from "../features/home/AboutSection2/AboutSection2";
@@ -18,6 +18,7 @@ export default function Index() {
       <SkillSection />
       <TestimonialSection />
       <CTASection />
+      
     </VStack>
   );
 }

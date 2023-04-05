@@ -4,24 +4,22 @@ import { commonStyle } from "../../../lib/theme/consts/commonStyle.const";
 export const styles = {
   grid: {
     position: "relative",
-    minH: "1000px",
+    minH: {
+      base: "600px",
+      md: "1000px",
+    },
     w: "full",
     zIndex: "2",
     px: {
       base: 6,
       md: 10,
-      xl: 0,
-    },
-    pt: {
-      base: "0",
-      xl: "20vh",
     },
 
     justifyItems: "center",
-
-    pb: {
-      base: "40vh",
-      xl: "40vh",
+    py: {
+      base: "17vh",
+      md: "20vh",
+      xl: "0",
     },
     bg: "#212530",
     templateColumns: {
@@ -30,15 +28,16 @@ export const styles = {
     },
   },
   textWrapper: {
-    pt: {
-      base: "4vh",
-      xl: 0,
-    },
     pl: {
       base: "0",
       xl: "10vw",
     },
     position: "relative",
+    bottom: {
+      base: "10em",
+      md: "20vh",
+      xl: "-30vh",
+    },
   },
   aboutText: {
     fontSize: commonStyle.font35,
@@ -59,7 +58,11 @@ export const styles = {
   imageWrapper: {
     zIndex: "2",
     position: "relative",
-    top: [-20, 0],
+    top: {
+      base: "-15em",
+      md: "-20vh",
+      xl: "0",
+    },
 
     width: {
       base: "80vw",

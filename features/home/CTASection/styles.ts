@@ -18,6 +18,7 @@ export const styles = {
       lg: "row",
     },
     gap: "20",
+    justifyContent: "space-between",
   },
   formWrapper: {
     w: "full",
@@ -27,6 +28,23 @@ export const styles = {
     position: "relative",
     zIndex: 1,
   },
+  formTitle: {
+    fontSize: {
+      base: "25px !important",
+      md: "45px !important",
+    },
+    fontWeight: "700",
+  },
+  rightImage: {
+    paddingTop: {
+      base: "20px",
+      xl: "100px",
+    },
+    position: "relative",
+  },
+  footerText:{
+    
+  }
 } as {
   [key: string]: StyleProps;
 };

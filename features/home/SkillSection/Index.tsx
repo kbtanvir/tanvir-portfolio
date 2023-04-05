@@ -1,12 +1,20 @@
-import { Box, HStack, Text, VStack } from "@chakra-ui/react";
+import { Box, HStack, Text, VStack, useMediaQuery } from "@chakra-ui/react";
 import { animated, useScroll } from "@react-spring/web";
 import { CoolText } from "../../../lib/atoms/CoolText/CoolText";
+import { piStyle } from "../WorksSection/styles";
 import { styles } from "./styles";
 
 export default function SkillSection() {
   const { scrollYProgress } = useScroll();
+  const [lg] = useMediaQuery("(min-width: 1024px)");
   return (
     <VStack {...styles.sectionWrapper}>
+      {!lg && (
+        <VStack {...styles.sectionTitleWrapper}>
+          <Text {...styles.sectionTitle}>Skills</Text>
+          <Box {...piStyle.underline} />
+        </VStack>
+      )}
       <HStack position={"relative"} w="full">
         <animated.div
           style={{
@@ -20,6 +28,7 @@ export default function SkillSection() {
             bg="linear-gradient(180deg, #0d111c 0%, rgba(44, 51, 68, 0) 100%)"
           />
         </animated.div>
+
         <HStack {...styles.skillListWrapper}>
           <SkillList
             title="Frontend"
@@ -58,7 +67,7 @@ export default function SkillSection() {
             list={[
               "Figma",
               "Illustrator",
-              "Photoshop",              
+              "Photoshop",
               "Affinity",
               "Manga Studio",
             ]}
@@ -75,29 +84,12 @@ export default function SkillSection() {
 }
 
 function SkillList({ title, list }: { title: any; list: any[] }) {
+  const [lg] = useMediaQuery("(min-width: 1024px)");
   return (
     <VStack position={"relative"} alignItems={"start"}>
-      <Box position="relative">
-        <Text
-          color="white"
-          fontSize={"24px"}
-          position="relative"
-          zIndex={1}
-          fontWeight="700"
-          textTransform={"uppercase"}
-        >
-          {title}
-        </Text>
-        <Box
-          bg="#FFD12D"
-          top="10px"
-          h="3px"
-          border={"none"}
-          position="relative"
-          zIndex={2}
-          w="130px"
-          mb="10"
-        />
+      <Box position="relative" pb="4">
+        <Text {...styles.skillTitle}>{title}</Text>
+        {lg && <Box {...piStyle.underline} />}
       </Box>
       <VStack
         position="relative"
@@ -107,18 +99,7 @@ function SkillList({ title, list }: { title: any; list: any[] }) {
         alignItems="start"
       >
         {list.map(item => (
-          <Text
-            key={item}
-            color="gray.500"
-            cursor="pointer"
-            transition={"all 0.2s ease-in-out"}
-            _hover={{
-              color: "gold",
-            }}
-            fontSize={"20px"}
-            fontWeight="400"
-            // textTransform={"uppercase"}
-          >
+          <Text key={item} {...styles.skillItem}>
             {item}
           </Text>
         ))}

@@ -73,6 +73,10 @@ export const styles = {
     },
     w: "full",
   },
+  testimonialText: {
+    fontSize: { base: "14px", },
+    color: "#FFFFFF",
+  },
 } as {
   [key: string]: StyleProps;
 };

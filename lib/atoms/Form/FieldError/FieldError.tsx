@@ -11,7 +11,7 @@ export default function FieldError({ name }: { name: any }) {
             as="span"
             {...{
               fontSize: "14px",
-              color: "red",
+              color: "gold",
               display: "inline-block",
             }}
           >

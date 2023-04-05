@@ -62,10 +62,7 @@ function TestimonialItem({ data }: { data: Partial<ITestimonial> }) {
       </Box>
       <VStack {...styles.textWrap}>
         <Text
-          {...{
-            fontSize: "14px",
-            color: "#FFFFFF",
-          }}
+          {...styles.testimonialText}
         >
           {data.text}
         </Text>

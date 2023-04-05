@@ -19,7 +19,7 @@ export const commonStyle = {
   rootPT: "80px",
   boxedContainerWidth: "1190px",
   font35: {
-    base: "1.5rem !important",
+    base: "20px !important",
     md: "30px !important",
     // xl: "35px !important",
   },

@@ -181,7 +181,13 @@ function SingleItemModal({ item }: { item: Partial<IWorkData> }) {
           objectFit="cover"
         />
       </Box>
-      <HStack pt="4" flexWrap={"wrap"} gap="4" justifyContent={"start"}>
+      <HStack
+        pt="4"
+        flexWrap={"wrap"}
+        gap="4"
+        justifyContent={"start"}
+        flexDir={"row-reverse"}
+      >
         {item.skills!.map((text, i) => (
           <Tag key={i} variant="outline" size="lg" color="gold">
             {text}

@@ -1,6 +1,7 @@
 import { Box, HStack, Text, VStack } from "@chakra-ui/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { styles } from "./styles";
 
 export function IntroTexts() {
   const container = {
@@ -51,8 +52,7 @@ export function IntroTexts() {
             <Text
               pr="4"
               color={i === 2 ? "white" : "gold"}
-              fontSize={[25, 45]}
-              fontWeight="700"
+              {...styles.introText}
             >
               {text}
             </Text>
@@ -66,7 +66,7 @@ export function IntroTexts() {
             duration: 0.8,
           }}
         >
-          <Text color="white" fontSize={[25, 45]} fontWeight="700">
+          <Text color="white" {...styles.introText}>
             I make
           </Text>
         </motion.div>
@@ -88,8 +88,8 @@ const AnimatedText = motion(Box);
 
 export function TextSwitchAnimation() {
   const variants = {
-    initial: { y: "100%", x: "10px" },
-    visible: { y: "-18%" },
+    initial: { y: "100%", x: "12px" },
+    visible: { y: "-23%" },
     hidden: { y: "-100%" },
   };
 
@@ -115,23 +115,11 @@ export function TextSwitchAnimation() {
   }, []);
 
   return (
-    <Box
-      overflowY={"hidden"}
-      css={{
-        "&::-webkit-scrollbar": {
-          display: "none",
-        },
-      }}
-      w={[210, "500px"]}
-      height={["30px", 45]}
-      position={"relative"}
-      top="3px"
-    >
+    <Box {...styles.animatedTextWrapper}>
       <AnimatePresence exitBeforeEnter>
         <AnimatedText
           color="#3ee1e2"
-          fontSize={[25, 40]}
-          fontWeight="700"
+          {...styles.introText}
           variants={variants}
           initial="initial"
           animate="visible"
