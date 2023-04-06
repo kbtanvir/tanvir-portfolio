@@ -1,10 +1,14 @@
 import { Button, Text, VStack } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useMutation } from "@tanstack/react-query";
+import { httpsCallable } from "firebase/functions";
 import { FormProvider, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import * as yup from "yup";
 import { FormFieldHandler } from "../../../lib/atoms/Form/FormFieldHandler";
+import { functions } from "../../../lib/configs/firebase.config";
 import { FormField } from "../../../lib/hooks/useHookForm";
+import { notify } from "../../../lib/utils/helper";
 import { styles } from "./styles";
 
 type IformData = {
@@ -17,20 +21,23 @@ type IformData = {
 export default function CTAForm() {
   const { t } = useTranslation();
 
-  // const formMutation = useMutation(
-  //   (dto: Partial<IformData>) =>
-  //     categoryService.prepareData(dto, item && item.id),
-  //   {
-  //     onSuccess() {
-  //       notify({
-  //         message: item ? t("Item updated") : t("Item created"),
-  //         type: "success",
-  //       });
-
-  //       onClose();
-  //     },
-  //   }
-  // );
+  const formMutation = useMutation(
+    (dto: Partial<IformData>) => sendEmail(dto),
+    {
+      onSuccess() {
+        notify({
+          message: t("Form submitted successfully"),
+          type: "success",
+        });
+      },
+      onError() {
+        notify({
+          message: t("Form submission failed"),
+          type: "error",
+        });
+      },
+    }
+  );
 
   // const defaultValues = useMemo(() => {
   //   return {
@@ -100,8 +107,23 @@ export default function CTAForm() {
     ),
   });
 
+  const sendEmail = async (dto: Partial<IformData>) => {
+    const addMessage = httpsCallable(functions, "addMessage");
+    addMessage(dto)
+      .then(result => {
+        console.log(result);
+      })
+      .catch(error => {
+        const code = error.code;
+        const message = error.message;
+        const details = error.details;
+        console.log(code, message, details);
+        throw { code, message, details };
+      });
+  };
+
   function onSubmit(dto: Partial<IformData>) {
-    // formMutation.mutate(dto);
+    formMutation.mutate(dto);
   }
 
   // useEffect(() => {
@@ -111,16 +133,25 @@ export default function CTAForm() {
   // * HANDLERS
   // -------------
 
+  if (formMutation.isSuccess)
+    return (
+      <ThankYou
+        onClick={() => {
+          formMutation.reset();
+          formService.reset();
+        }}
+      />
+    );
+
   return (
-    <>
-      <VStack {...styles.formWrapper}>
-        {/* FORM  */}
-        <VStack alignItems={"start"}>
-          <Text {...styles.formTitle} color="white" mb="-2">
-            Lets talk about
+    <VStack {...styles.formWrapper}>
+      {/* FORM  */}
+      <VStack alignItems={"start"}>
+        <Text {...styles.formTitle} color="white" mb="-2">
+          Let`s talk about
           </Text>
           <Text color="gold" {...styles.formTitle}>
-            Your exciting project!
+            your exciting project!
           </Text>
         </VStack>
         <FormProvider {...formService}>
@@ -149,13 +180,36 @@ export default function CTAForm() {
               fontWeight={"400"}
               type={"submit"}
               width="full"
-              // isLoading={formMutation.isLoading}
+              isLoading={formMutation.isLoading}
             >
               submit
             </Button>
           </form>
         </FormProvider>
       </VStack>
-    </>
+  );
+}
+
+function ThankYou({ onClick }: { onClick: () => void }) {
+  return (
+    <VStack {...styles.formWrapper}>
+      <Text {...styles.formTitle} color="white" mb="-6">
+        Awesome!
+      </Text>
+      <Text color="gold" {...styles.formTitle}>
+        I`ll be in touch soon.
+      </Text>
+      <Button
+        variant={"outline"}
+        textTransform={"capitalize"}
+        fontSize={"18px"}
+        fontWeight={"400"}
+        type={"submit"}
+        width="full"
+        onClick={onClick}
+      >
+        Send another message
+      </Button>
+    </VStack>
   );
 }

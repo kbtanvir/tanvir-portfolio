@@ -4,12 +4,16 @@ export const styles = {
   sectionWrapper: {
     justifyContent: "space-between",
     position: "relative",
-    minH: "1000px",
+    minH: {
+      md: "1000px",
+    },
     w: "full",
     px: 6,
     pt: ["20"],
     bg: "#212530",
-    gap: "10vh",
+    gap: {
+      base: "10vh",
+    },
   },
   container: {
     w: "full",
@@ -35,6 +39,10 @@ export const styles = {
       md: "45px !important",
     },
     fontWeight: "700",
+    textAlign: {
+      base: "center",
+      md: "left",
+    },
   },
   rightImage: {
     paddingTop: {
