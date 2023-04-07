@@ -9,11 +9,11 @@ import {
 import { useMutation } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { BiTrash } from "react-icons/bi";
-import { DeleteIcon } from "../../../features/common/CustomIcons";
 import { ButtonVariant } from "../../theme/components/Button";
 import { TextVariant } from "../../theme/components/Text";
 import { notify } from "../../utils/helper";
 import { CustomModal } from "../Modal/CustomModal";
+import { DeleteIcon } from "../SVG/CustomIcons";
 
 export function RemoveItemTrigger({
   submitText,

@@ -1,7 +1,7 @@
 import { Box, Button, HStack } from "@chakra-ui/react";
 import Router from "next/router";
 import { useState } from "react";
-import { LittleDot } from "../../../features/common/CustomIcons";
+import { LittleDot } from "../SVG/CustomIcons";
 // import { LittleDot } from "../../features/common/Icons";
 // import { LittleDot } from "../../features/common/Icons";
 import { ButtonVariant } from "../../theme/components/Button";

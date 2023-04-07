@@ -2,8 +2,8 @@ import { Input, InputGroup, InputLeftElement, VStack } from "@chakra-ui/react";
 import { useMutation } from "@tanstack/react-query";
 import debounce from "lodash.debounce";
 import { FormProvider, useForm } from "react-hook-form";
-import { SearchIcon } from "../../../features/common/CustomIcons";
 import { InputVariant } from "../../theme/components/Input";
+import { SearchIcon } from "../SVG/CustomIcons";
 
 export function SearchForm({
   mutationKey,

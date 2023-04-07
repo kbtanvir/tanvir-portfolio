@@ -1,8 +1,8 @@
 import { Button, HStack, Text, VStack } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
-import { SuccessModalIcon } from "../../../features/common/CustomIcons";
 import { ButtonVariant } from "../../theme/components/Button";
 import { TextVariant } from "../../theme/components/Text";
+import { SuccessModalIcon } from "../SVG/CustomIcons";
 
 export function SuccessPopup({
   keyword,

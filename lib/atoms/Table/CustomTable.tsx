@@ -14,11 +14,11 @@ import {
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { SortIcon } from "../../../features/common/CustomIcons";
 import { DataRow, FilterOptions, Order, TableColumn } from "../../types/table";
-import { styles } from "./styles";
+import { SortIcon } from "../SVG/CustomIcons";
 import TableFooter from "./TableFooter/TableFooter";
 import { TableHeader } from "./TableHeader/TableHeader";
+import { styles } from "./styles";
 
 export function CustomTable({
   columns,

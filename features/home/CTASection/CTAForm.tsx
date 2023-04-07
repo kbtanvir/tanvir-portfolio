@@ -149,44 +149,44 @@ export default function CTAForm() {
       <VStack alignItems={"start"}>
         <Text {...styles.formTitle} color="white" mb="-2">
           Let`s talk about
-          </Text>
-          <Text color="gold" {...styles.formTitle}>
-            your exciting project!
-          </Text>
-        </VStack>
-        <FormProvider {...formService}>
-          <form onSubmit={formService.handleSubmit(onSubmit)}>
-            <VStack
-              gap="24px"
-              width="full"
-              pb="40px"
-              transition={"all 0.3s ease-in-out"}
-            >
-              {formFields.map((fields, index) => (
-                <VStack key={index} w="full" alignItems="stretch" gap="24px">
-                  {fields.map(field => (
-                    <FormFieldHandler key={field.name} field={field} />
-                  ))}
-                </VStack>
-              ))}
-            </VStack>
-
-            {/* BUTTONS */}
-
-            <Button
-              variant={"outline"}
-              textTransform={"capitalize"}
-              fontSize={"18px"}
-              fontWeight={"400"}
-              type={"submit"}
-              width="full"
-              isLoading={formMutation.isLoading}
-            >
-              submit
-            </Button>
-          </form>
-        </FormProvider>
+        </Text>
+        <Text color="gold" {...styles.formTitle}>
+          your exciting project!
+        </Text>
       </VStack>
+      <FormProvider {...formService}>
+        <form onSubmit={formService.handleSubmit(onSubmit)}>
+          <VStack
+            gap="24px"
+            width="full"
+            pb="40px"
+            transition={"all 0.3s ease-in-out"}
+          >
+            {formFields.map((fields, index) => (
+              <VStack key={index} w="full" alignItems="stretch" gap="24px">
+                {fields.map(field => (
+                  <FormFieldHandler key={field.name} field={field} />
+                ))}
+              </VStack>
+            ))}
+          </VStack>
+
+          {/* BUTTONS */}
+
+          <Button
+            variant={"outline"}
+            textTransform={"capitalize"}
+            fontSize={"18px"}
+            fontWeight={"400"}
+            type={"submit"}
+            width="full"
+            isLoading={formMutation.isLoading}
+          >
+            submit
+          </Button>
+        </form>
+      </FormProvider>
+    </VStack>
   );
 }
 
@@ -197,7 +197,7 @@ function ThankYou({ onClick }: { onClick: () => void }) {
         Awesome!
       </Text>
       <Text color="gold" {...styles.formTitle}>
-        I`ll be in touch soon.
+        I`ll be in touch shortly.
       </Text>
       <Button
         variant={"outline"}
@@ -206,6 +206,7 @@ function ThankYou({ onClick }: { onClick: () => void }) {
         fontWeight={"400"}
         type={"submit"}
         width="full"
+        maxW={"300px"}
         onClick={onClick}
       >
         Send another message

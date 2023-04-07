@@ -16,8 +16,7 @@ const sendEmail = functions.https.onCall((data, context) => {
         email: data.email,
         name: data.name,
       },
-      // replyTo: { email: "api@sendinblue.com", name: "Sendinblue" },
-      to: [{ name: "John Doe", email: "tanvirkhaan004@gmail.com" }],
+      to: [{ name: "John Doe", email: process.env.TO_EMAIL }],
       htmlContent: `
         <!DOCTYPE html>
             <html>
