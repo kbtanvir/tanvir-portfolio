@@ -12,7 +12,7 @@ export function StarsAnimation({
   falling?: boolean;
   reverse?: boolean;
 }) {
-  const stars = Array.from({ length: 5 }, (_, i) => i);
+  const stars = Array.from({ length: 10 }, (_, i) => i);
   const { scrollYProgress } = useScroll();
   // inifinte rotation
   const yellowRotation = useSpring({
@@ -44,12 +44,12 @@ export function StarsAnimation({
       overflow={"hidden"}
       minH="100vh"
     >
-      {stars.map(i => (
-        <ShootingStar key={i} />
+      {stars.map((i, idx) => (
+        <ShootingStar key={i} n={idx} />
       ))}
       <animated.div
         style={{
-          translateY: scrollYProgress.to([0, 1], [0, 100]),
+          // translateY: scrollYProgress.to([0, 1], [0, 100]),
           rotate: whiteStarRotation.rotate.to(r => r),
         }}
       >
@@ -68,7 +68,7 @@ export function StarsAnimation({
       </animated.div>
       <animated.div
         style={{
-          translateY: scrollYProgress.to([0, 1], [0, 400]),
+          // translateY: scrollYProgress.to([0, 1], [0, 400]),
           rotate: yellowRotation.rotate.to(r => r),
         }}
       >
@@ -87,7 +87,7 @@ export function StarsAnimation({
       </animated.div>
       <animated.div
         style={{
-          translateY: scrollYProgress.to([0, 1], [0, 200]),
+          // translateY: scrollYProgress.to([0, 1], [0, 200]),
           rotate: blueRotation.rotate.to(r => r),
         }}
       >

@@ -1,5 +1,6 @@
 import { Box, HStack, Text, VStack } from "@chakra-ui/react";
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { styles } from "./styles";
 
@@ -27,58 +28,68 @@ export function IntroTexts() {
       pl={[6, "20"]}
       initial="hidden"
       animate="show"
+      position={"absolute"}
+      top={{
+        base: "0",
+      }}
     >
-      <Text
-        color="white"
-        fontSize={[35, 45]}
-        fontWeight="700"
+      <Box
         {...{
           position: "absolute",
-          top: [2, 10],
+          top: "50px",
         }}
       >
-        Logo
-      </Text>
-
-      <HStack justifyContent={"start"} alignItems="start" overflow={"hidden"}>
-        {["Hi,", "my name is", "Tanvir"].map((text, i) => (
+        <Box
+          {...{
+            position: "relative",
+          }}
+          height={{ base: "60px", md: "80px" }}
+          width={{ base: "60px", md: "80px" }}
+        >
+          <Image src="/kb.svg" layout="fill" objectFit="contain" alt="" />
+        </Box>
+      </Box>
+      <Box position={"relative"} top="40vh">
+        <HStack justifyContent={"start"} alignItems="start" overflow={"hidden"}>
+          {["Hi,", "my name is", "Tanvir"].map((text, i) => (
+            <motion.div
+              variants={element}
+              key={i}
+              transition={{
+                duration: 0.8,
+              }}
+            >
+              <Text
+                pr="4"
+                color={i === 2 ? "white" : "gold"}
+                {...styles.introText}
+              >
+                {text}
+              </Text>
+            </motion.div>
+          ))}
+        </HStack>
+        <HStack overflow={"hidden"}>
           <motion.div
             variants={element}
-            key={i}
             transition={{
               duration: 0.8,
             }}
           >
-            <Text
-              pr="4"
-              color={i === 2 ? "white" : "gold"}
-              {...styles.introText}
-            >
-              {text}
+            <Text color="white" {...styles.introText}>
+              I make
             </Text>
           </motion.div>
-        ))}
-      </HStack>
-      <HStack overflow={"hidden"}>
-        <motion.div
-          variants={element}
-          transition={{
-            duration: 0.8,
-          }}
-        >
-          <Text color="white" {...styles.introText}>
-            I make
-          </Text>
-        </motion.div>
-        <motion.div
-          variants={element}
-          transition={{
-            duration: 0.8,
-          }}
-        >
-          <TextSwitchAnimation />
-        </motion.div>
-      </HStack>
+          <motion.div
+            variants={element}
+            transition={{
+              duration: 0.8,
+            }}
+          >
+            <TextSwitchAnimation />
+          </motion.div>
+        </HStack>
+      </Box>
     </VStack>
   );
 }

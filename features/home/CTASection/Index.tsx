@@ -29,7 +29,7 @@ export default function CTASection() {
           </Box>
         </animated.div>
       </HStack>
-      <Footer/>
+      <Footer />
     </VStack>
   );
 }
@@ -54,7 +54,7 @@ function Footer() {
           },
           {
             text: "Resume",
-            link: "mailto:tanvirkhaan004@gmail.com",
+            link: "https://drive.google.com/file/d/1STb6eRonXAHYI3XG1xjBkshAvI2Y_4k7/view?usp=share_link",
           },
         ].map((item, i) => (
           <Link key={i} href={item.link} target="_blank">
