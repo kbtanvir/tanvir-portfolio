@@ -30,6 +30,7 @@ export const globalStyle = {
     },
     "html, body": {
       overflowX: "hidden",
+      backgroundColor: "black",
     },
     // a: {
     //   color: "teal.500",

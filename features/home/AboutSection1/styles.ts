@@ -25,23 +25,7 @@ export const styles = {
     },
     position: "relative",
   },
-  aboutText: {
-    fontSize: commonStyle.font35,
-    lineHeight: "1.2",
-    color: "white",
-    pr: {
-      base: "0",
-      md: "10",
-    },
-    sx: {
-      "& span": {
-        color: "#FFD12D",
-        fontSize: commonStyle.font35,
-        lineHeight: "1.2",
-        pl: "2",
-      },
-    },
-  },
+  aboutText: commonStyle.aboutText,
   imageWrapper: {
     position: "relative",
     placeItems: "end",

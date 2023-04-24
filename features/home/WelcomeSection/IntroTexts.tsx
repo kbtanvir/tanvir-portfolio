@@ -77,7 +77,7 @@ export function IntroTexts() {
             }}
           >
             <Text color="white" {...styles.introText}>
-              I make
+              I am
             </Text>
           </motion.div>
           <motion.div
@@ -94,13 +94,13 @@ export function IntroTexts() {
   );
 }
 
-const texts = ["Mobile app", "Web app", "Motion graphics", "UI/UX"];
+const texts = ["Frontend Developer", "Fullstack Capable"];
 const AnimatedText = motion(Box);
 
 export function TextSwitchAnimation() {
   const variants = {
     initial: { y: "100%", x: "12px" },
-    visible: { y: "-23%" },
+    visible: { y: "-26%" },
     hidden: { y: "-100%" },
   };
 

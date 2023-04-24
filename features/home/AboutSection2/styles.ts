@@ -39,21 +39,7 @@ export const styles = {
       xl: "-30vh",
     },
   },
-  aboutText: {
-    fontSize: commonStyle.font35,
-    lineHeight: "1.2",
-    color: "white",
-    textAlign: "left",
-
-    sx: {
-      "& span": {
-        color: "#FFD12D",
-        fontSize: commonStyle.font35,
-        lineHeight: "1.2",
-        pl: "2",
-      },
-    },
-  },
+  aboutText: commonStyle.aboutText,
 
   imageWrapper: {
     zIndex: "2",

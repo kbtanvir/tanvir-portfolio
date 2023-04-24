@@ -1,5 +1,6 @@
 import { Stack, VStack } from "@chakra-ui/react";
 import { animated, useScroll } from "@react-spring/web";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { TerrainSVG } from "../../../lib/atoms/SVG/WelcomeSVGs";
 import { IntroTexts } from "./IntroTexts";
@@ -8,6 +9,10 @@ import { StarsAnimation } from "./StarsAnimation";
 export default function WelcomeSection() {
   return (
     <VStack
+      as={motion.div}
+      initial={{
+        background: "linear-gradient(180deg, #000000 41.15%, #000000 100%);",
+      }}
       bg="linear-gradient(180deg, #0C0D0F 41.15%, #205B6D 100%);"
       w="full"
       minH="100vh"

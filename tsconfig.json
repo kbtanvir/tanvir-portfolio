@@ -23,6 +23,6 @@
     "lib/atoms/Table/CustomTable.tsx",
     "lib/atoms/Table/ExcelExportButton.tsx",
     "lib/cuberto/magnetic.js"
-  ],
+, "lib/utils/gtag.js"  ],
   "exclude": ["node_modules"]
 }

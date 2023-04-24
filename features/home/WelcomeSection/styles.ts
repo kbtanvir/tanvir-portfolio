@@ -4,7 +4,7 @@ export const styles = {
   sectionWrapper: {},
   introText: {
     fontSize: {
-      base: "25px !important",
+      base: "22px !important",
       md: "45px !important",
     },
     fontWeight: "700",
@@ -16,12 +16,12 @@ export const styles = {
         display: "none",
       },
     },
-    w: [210, "500px"],
+    w: ["250px", "500px"],
     height: ["30px", 45],
     position: "relative",
     top: {
-      base: "4px",
-      md: "3px",
+      base: "6px",
+      md: "6px",
     },
   },
 } as {

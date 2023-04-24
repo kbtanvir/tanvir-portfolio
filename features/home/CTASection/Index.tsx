@@ -54,7 +54,7 @@ function Footer() {
           },
           {
             text: "Resume",
-            link: "https://drive.google.com/file/d/1STb6eRonXAHYI3XG1xjBkshAvI2Y_4k7/view?usp=share_link",
+            link: "https://blackbilled.notion.site/blackbilled/K-B-TANVIR-ad61fcbbc218474786f7e63533c1888d",
           },
         ].map((item, i) => (
           <Link key={i} href={item.link} target="_blank">

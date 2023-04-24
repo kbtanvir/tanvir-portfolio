@@ -155,6 +155,7 @@ function ProjectItem({ item }: { item: Partial<IWorkData> }) {
             alt="moon"
             objectFit="cover"
             objectPosition="center"
+            lazyBoundary="1000px"
           />
         </Stack>
       </VStack>
