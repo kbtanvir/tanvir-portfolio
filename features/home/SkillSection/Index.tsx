@@ -63,13 +63,14 @@ export default function SkillSection() {
             ]}
           />
           <SkillList
-            title="UX/UI"
+            title="CI/CD"
             list={[
-              "Figma",
-              "Illustrator",
-              "Photoshop",
-              "Affinity",
-              "Manga Studio",
+              "Docker",
+              "Github Actions",
+              "AWS",
+              "Netlify",
+              "Vercel",
+              "Kubernetes",
             ]}
           />
           <SkillList

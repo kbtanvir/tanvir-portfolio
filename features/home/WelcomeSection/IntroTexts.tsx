@@ -69,7 +69,7 @@ export function IntroTexts() {
             </motion.div>
           ))}
         </HStack>
-        <HStack overflow={"hidden"}>
+        <HStack overflow={"hidden"} pb={["1", "2.5"]}>
           <motion.div
             variants={element}
             transition={{
@@ -77,9 +77,24 @@ export function IntroTexts() {
             }}
           >
             <Text color="white" {...styles.introText}>
-              I am
+              Your Friendly{" "}
+              <Text
+                {...{
+                  fontSize: {
+                    base: "20px !important",
+                    sm: "24px",
+                    md: "45px !important",
+                  },
+                  fontWeight: "800",
+                  // color: "#e11ecb",
+                }}
+              >
+                Neighborhood
+              </Text>
             </Text>
           </motion.div>
+        </HStack>
+        <HStack overflow={"hidden"}>
           <motion.div
             variants={element}
             transition={{
@@ -94,13 +109,13 @@ export function IntroTexts() {
   );
 }
 
-const texts = ["Frontend Developer", "Fullstack Capable"];
+const texts = ["Software Engineer", "Fullstack Developer"];
 const AnimatedText = motion(Box);
 
 export function TextSwitchAnimation() {
   const variants = {
-    initial: { y: "100%", x: "12px" },
-    visible: { y: "-26%" },
+    initial: { y: "100%" },
+    visible: { y: "-10%" },
     hidden: { y: "-100%" },
   };
 
@@ -131,6 +146,7 @@ export function TextSwitchAnimation() {
         <AnimatedText
           color="#3ee1e2"
           {...styles.introText}
+          fontWeight={800}
           variants={variants}
           initial="initial"
           animate="visible"
