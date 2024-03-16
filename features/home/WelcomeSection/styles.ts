@@ -6,9 +6,9 @@ export const styles = {
     fontSize: {
       base: "20px !important",
       sm: "24px",
-      md: "45px !important",
+      md: "65px !important",
     },
-    fontWeight: "700",
+    fontWeight: "600",
   },
   animatedTextWrapper: {
     css: {
@@ -16,7 +16,7 @@ export const styles = {
         display: "none",
       },
     },
-    w: ["250px", "500px"],
+    // w: ["450px", "500px"],
     position: "relative",
   },
 } as {

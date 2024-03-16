@@ -441,3 +441,176 @@ export function DownloadIcon({ color = "#232323" }: { color?: string }) {
     </svg>
   );
 }
+
+export function Cloud1() {
+  return (
+    <svg
+      width="184"
+      height="33"
+      viewBox="0 0 184 33"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g filter="url(#filter0_i_951_1293)">
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M96.8936 27.8455C93.04 29.5908 88.3451 30.6152 83.2793 30.6152C78.7028 30.6152 74.429 29.7791 70.8047 28.3307C66.089 30.5841 59.6002 31.9759 52.4374 31.9759C47.8536 31.9759 43.5458 31.4059 39.8021 30.4049C35.819 31.5927 31.1239 32.2782 26.0968 32.2782C11.6839 32.2782 0 26.6432 0 19.692C0 12.7408 11.6839 7.10575 26.0968 7.10575C30.6806 7.10575 34.9884 7.67571 38.7321 8.67671C42.7152 7.4889 47.4103 6.80337 52.4374 6.80337C56.0441 6.80337 59.4798 7.15623 62.6044 7.79427C66.6746 3.14147 74.4083 0 83.2793 0C90.547 0 97.0514 2.10855 101.403 5.42926C103.273 5.04271 105.266 4.83397 107.334 4.83397C113.081 4.83397 118.244 6.44509 121.794 9.00446C125.127 7.2618 129.376 6.21751 134.003 6.21751C140.224 6.21751 145.762 8.1057 149.309 11.0411C152.856 8.1057 158.393 6.21751 164.615 6.21751C175.321 6.21751 184 11.8085 184 18.7053C184 25.6021 175.321 31.1931 164.615 31.1931C158.393 31.1931 152.856 29.3049 149.309 26.3695C145.762 29.3049 140.224 31.1931 134.003 31.1931C128.255 31.1931 123.092 29.5819 119.542 27.0226C116.21 28.7652 111.961 29.8095 107.334 29.8095C103.49 29.8095 99.9072 29.0887 96.8936 27.8455Z"
+          fill="white"
+        />
+      </g>
+      <defs>
+        <filter
+          id="filter0_i_951_1293"
+          x="0"
+          y="-2"
+          width="184"
+          height="34.2783"
+          filterUnits="userSpaceOnUse"
+          colorInterpolationFilters="sRGB"
+        >
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="BackgroundImageFix"
+            result="shape"
+          />
+          <feColorMatrix
+            in="SourceAlpha"
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+            result="hardAlpha"
+          />
+          <feOffset dy="-7" />
+          <feGaussianBlur stdDeviation="1" />
+          <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+          <feColorMatrix
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+          />
+          <feBlend
+            mode="normal"
+            in2="shape"
+            result="effect1_innerShadow_951_1293"
+          />
+        </filter>
+      </defs>
+    </svg>
+  );
+}
+
+export function Cloud2() {
+  return (
+    <svg
+      width="71"
+      height="34"
+      viewBox="0 0 71 34"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g filter="url(#filter0_i_963_1271)">
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M49.9034 29.6081C47.1777 31.4639 43.8568 32.5532 40.2737 32.5532C37.0367 32.5532 34.0137 31.6642 31.4502 30.1241C28.1148 32.5202 23.5251 34 18.4588 34C8.26427 34 0 28.0082 0 20.617C0 13.2258 8.26427 7.23405 18.4588 7.23405C21.0098 7.23405 23.4399 7.60923 25.6499 8.28765C28.5289 3.34032 33.9991 0 40.2737 0C45.4142 0 50.0149 2.24203 53.0931 5.77295C54.4153 5.36191 55.825 5.13995 57.2883 5.13995C64.861 5.13995 70.9998 11.0848 70.9998 18.4182C70.9998 25.7516 64.861 31.6965 57.2883 31.6965C54.5692 31.6965 52.035 30.93 49.9034 29.6081Z"
+          fill="white"
+        />
+      </g>
+      <defs>
+        <filter
+          id="filter0_i_963_1271"
+          x="-2"
+          y="-2"
+          width="73"
+          height="36"
+          filterUnits="userSpaceOnUse"
+          colorInterpolationFilters="sRGB"
+        >
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="BackgroundImageFix"
+            result="shape"
+          />
+          <feColorMatrix
+            in="SourceAlpha"
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+            result="hardAlpha"
+          />
+          <feOffset dx="-2" dy="-8" />
+          <feGaussianBlur stdDeviation="1" />
+          <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+          <feColorMatrix
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+          />
+          <feBlend
+            mode="normal"
+            in2="shape"
+            result="effect1_innerShadow_963_1271"
+          />
+        </filter>
+      </defs>
+    </svg>
+  );
+}
+export function Cloud3() {
+  return (
+    <svg
+      width="57"
+      height="26"
+      viewBox="0 0 57 26"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g filter="url(#filter0_i_963_1275)">
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M18.5034 22.9616C20.8211 24.0037 23.5245 24.425 26.3207 24.0285C28.8468 23.6703 31.1146 22.6921 32.957 21.2932C35.806 22.6591 39.5396 23.2228 43.4933 22.6621C51.449 21.534 57.2831 16.2808 56.5242 10.9288C55.7652 5.57685 48.7007 2.15274 40.745 3.28087C38.7543 3.56316 36.8964 4.10375 35.2414 4.83955C32.4867 1.57576 27.8748 -0.237637 22.9782 0.456714C18.9665 1.02558 15.6064 3.15817 13.5668 6.05558C12.4927 5.90424 11.3698 5.89952 10.2279 6.06145C4.31824 6.89945 0.137949 11.8835 0.890936 17.1936C1.64392 22.5037 7.04505 26.1291 12.9547 25.2911C15.0767 24.9902 16.9757 24.1547 18.5034 22.9616Z"
+          fill="white"
+        />
+      </g>
+      <defs>
+        <filter
+          id="filter0_i_963_1275"
+          x="-1.19678"
+          y="-1.69043"
+          width="57.7871"
+          height="27.1019"
+          filterUnits="userSpaceOnUse"
+          colorInterpolationFilters="sRGB"
+        >
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="BackgroundImageFix"
+            result="shape"
+          />
+          <feColorMatrix
+            in="SourceAlpha"
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+            result="hardAlpha"
+          />
+          <feOffset dx="-7" dy="-4" />
+          <feGaussianBlur stdDeviation="1" />
+          <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+          <feColorMatrix
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+          />
+          <feBlend
+            mode="normal"
+            in2="shape"
+            result="effect1_innerShadow_963_1275"
+          />
+        </filter>
+      </defs>
+    </svg>
+  );
+}

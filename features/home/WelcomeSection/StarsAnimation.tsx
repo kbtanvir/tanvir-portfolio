@@ -73,16 +73,16 @@ export function StarsAnimation({
         }}
       >
         <Stack left="150" top="350" position={"absolute"}>
-          <StarsSVG color="#FFD12D" r={3} />
+          <StarsSVG color="#FFD12D" r={1} />
         </Stack>
         <Stack right="130" top="250" position={"absolute"}>
-          <StarsSVG color="#FFD12D" r={3} />
+          <StarsSVG color="#FFD12D" r={1} />
         </Stack>
         <Stack left="250" top="-550" position={"absolute"}>
-          <StarsSVG color="#FFD12D" r={3} />
+          <StarsSVG color="#FFD12D" r={1} />
         </Stack>
         <Stack right="230" top="350" position={"absolute"}>
-          <StarsSVG color="#FFD12D" r={3} />
+          <StarsSVG color="#FFD12D" r={1} />
         </Stack>
       </animated.div>
       <animated.div

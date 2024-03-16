@@ -1,7 +1,9 @@
-import { Stack, VStack } from "@chakra-ui/react";
+import { Box, Stack, VStack } from "@chakra-ui/react";
 import { animated, useScroll } from "@react-spring/web";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useRef, useState } from "react";
+import { Cloud1, Cloud2, Cloud3 } from "../../../lib/atoms/SVG/CustomIcons";
 import { TerrainSVG } from "../../../lib/atoms/SVG/WelcomeSVGs";
 import { IntroTexts } from "./IntroTexts";
 import { StarsAnimation } from "./StarsAnimation";
@@ -20,6 +22,8 @@ export default function WelcomeSection() {
       position="relative"
     >
       <StarsAnimation />
+      <CloudAnimation />
+
       <MoonAnimation />
       <MountainAnimation />
       <TerrainAnimation />
@@ -38,22 +42,115 @@ function MoonAnimation() {
         position: "absolute",
       }}
     >
-      <Stack
-        position="relative"
-        width={[70, "120px"]}
-        height={[70, "120px"]}
-        zIndex={1}
-        bottom={{
-          base: "-15vh",
-          lg: "10vh",
-        }}
-        right={{
-          base: "10vw",
+      <MagnetWrapper>
+        <Stack
+          position="relative"
+          width={[70, "220px"]}
+          height={[70, "220px"]}
+          zIndex={1}
+          bottom={{
+            base: "-15vh",
+            lg: "10vh",
+          }}
+          right={{
+            base: "10vw",
+          }}
+        >
+          <Image src="/welcome/moon.svg" layout="fill" alt="moon" />
+        </Stack>
+      </MagnetWrapper>
+    </animated.div>
+  );
+}
+
+export function MagnetWrapper({ children }: { children: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  const handleMouse = (e: React.MouseEvent) => {
+    if (!ref.current) return;
+    const { clientX, clientY } = e;
+    const { height, width, left, top } = ref.current.getBoundingClientRect();
+    const middleX = clientX - (left + width / 2);
+    const middleY = clientY - (top + height / 2);
+    setPosition({ x: middleX, y: middleY });
+  };
+
+  const reset = () => {
+    setPosition({ x: 0, y: 0 });
+  };
+
+  const { x, y } = position;
+  return (
+    <motion.div
+      style={{ position: "relative" }}
+      ref={ref}
+      onMouseMove={handleMouse}
+      onMouseLeave={reset}
+      animate={{ x, y }}
+      transition={{ type: "spring", stiffness: 40, damping: 15, mass: 0.5 }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+function CloudAnimation() {
+  return (
+    <Box
+      {...{
+        position: "absolute",
+        bottom: "20vh",
+        right: "35vw",
+        zIndex: 4,
+        display: { base: "none", xl: "grid" },
+        gap: 10,
+      }}
+    >
+      <Box position={"relative"} top="40px">
+        <motion.div
+          key="cloud3"
+          animate={{
+            x: [350, 200, 350],
+
+            transition: {
+              duration: 20,
+              repeat: Infinity,
+              repeatType: "reverse",
+              // delay: 2,
+            },
+          }}
+        >
+          <Cloud3 />
+        </motion.div>
+      </Box>
+      <motion.div
+        key="cloud2"
+        animate={{
+          x: [-50, 100, -50],
+          transition: {
+            duration: 20,
+            repeat: Infinity,
+            repeatType: "reverse",
+            // delay: 2,
+          },
         }}
       >
-        <Image src="/welcome/moon.svg" layout="fill" alt="moon" />
-      </Stack>
-    </animated.div>
+        <Cloud2 />
+      </motion.div>
+      <motion.div
+        key="cloud1"
+        animate={{
+          x: [0, 100, 0],
+          transition: {
+            duration: 17,
+            repeat: Infinity,
+            repeatType: "reverse",
+          },
+        }}
+      >
+        <Cloud1 />
+      </motion.div>
+    </Box>
   );
 }
 function MountainAnimation() {

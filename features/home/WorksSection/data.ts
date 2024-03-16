@@ -82,7 +82,6 @@ export const worksData: IWorkData[] = [
     liveUrl: "https://www.allaboutaccess.com/",
     skills: ["HTML", "CSS", "JavaScript", "WordPress", "Woocommerce"],
   },
-
   {
     id: 2,
     title: "Flexistore",
