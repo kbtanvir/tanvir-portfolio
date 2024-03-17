@@ -33,18 +33,14 @@ export default function SkillSection() {
           <SkillList
             title="Frontend"
             list={[
-              "HTML",
-              "CSS",
               "TypeScript",
-              "SASS/SCSS",
               "Tailwind CSS",
-              "Flutter",
-              "React.js",
               "Next.js",
+              "React.js",
+              "Redux",
+              "SASS/SCSS",
+              "Flutter",
               "Jest",
-              "React Query",
-              "Chakra UI & Material UI",
-              "Redux & Redux Toolkit",
               "Vue.js",
             ]}
           />
@@ -57,20 +53,18 @@ export default function SkillSection() {
               "MongoDB",
               "MySQL",
               "Firebase",
-              "Rest API",
-              "Sendgrid / Sendinblue",
-              "JWT",
+              // "Restful API",
+              // "Sendgrid / Sendinblue",
+              // "JWT",
             ]}
           />
           <SkillList
             title="CI/CD"
             list={[
+              "AWS",
               "Docker",
               "Github Actions",
-              "AWS",
-              "Netlify",
-              "Vercel",
-              "Kubernetes",
+              // "Kubernetes",
             ]}
           />
           <SkillList

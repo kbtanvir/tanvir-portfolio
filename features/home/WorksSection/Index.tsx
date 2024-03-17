@@ -118,6 +118,7 @@ export default function WorksSection() {
         >
           <HStack {...styles.rowWrapper}>
             <ProjectItem item={worksData[4]} />
+            <ProjectItem item={worksData[5]} />
           </HStack>
         </animated.div>
       </HStack>
@@ -195,37 +196,47 @@ function SingleItemModal({ item }: { item: Partial<IWorkData> }) {
           </Tag>
         ))}
       </HStack>
-      <Link target="_blank" href={item.liveUrl} _focus={{ outline: "none" }}>
-        <>
-          <HStack
-            pt="4"
-            cursor="pointer"
-            _hover={{ color: "gold", transform: "scale(1.2)" }}
-            transition={"all 0.3s ease-in"}
-          >
-            <Icon
-              as={AiOutlineLink}
-              color={"white"}
-              fontSize={"20px"}
-              cursor="pointer"
-            />
-            <Text color="white" fontSize={"20px"} display="inline">
-              Live demo
-            </Text>
-          </HStack>
-        </>
-      </Link>
 
       {/* TITLE */}
       <Text color="Gold" fontSize={"24px"} textTransform={"capitalize"}>
         {item.title}
       </Text>
+      <Link
+        target="_blank"
+        href={item.liveUrl}
+        _focus={{
+          ring: 0,
+        }}
+      >
+        <HStack
+          pt="4"
+          cursor="pointer"
+          _hover={{ color: "gold", transform: "scale(1.2)" }}
+          transition={"all 0.3s ease-in"}
+        >
+          <Icon
+            as={AiOutlineLink}
+            color={"white"}
+            fontSize={"20px"}
+            cursor="pointer"
+          />
+          <Text
+            color="white"
+            fontSize={"20px"}
+            display="inline"
+            ring={0}
+            border={0}
+          >
+            Live demo
+          </Text>
+        </HStack>
+      </Link>
       <Box bg="#FFD12D" h="3px" border={"none"} w="100px" mb="10px" />
       <Text color="white" fontSize={"16px"}>
         {item.overview}
       </Text>
       {/* RESULTS */}
-      {item.results!.length > 0 && (
+      {/* {item.results!.length > 0 && (
         <>
           <Text color="white" fontSize={"24px"}>
             Results
@@ -239,9 +250,9 @@ function SingleItemModal({ item }: { item: Partial<IWorkData> }) {
             ))}
           </VStack>
         </>
-      )}
+      )} */}
       {/* Challenges */}
-      {item.challenges!.length > 0 && (
+      {/* {item.challenges!.length > 0 && (
         <>
           <Text color="white" fontSize={"24px"}>
             Challenges
@@ -255,9 +266,9 @@ function SingleItemModal({ item }: { item: Partial<IWorkData> }) {
             ))}
           </VStack>
         </>
-      )}
+      )} */}
       {/* RESULTS */}
-      <Text color="white" fontSize={"24px"}>
+      {/* <Text color="white" fontSize={"24px"}>
         Solutions
       </Text>
       <Box bg="#FFD12D" h="3px" border={"none"} w="100px" mb="10px" />
@@ -267,7 +278,7 @@ function SingleItemModal({ item }: { item: Partial<IWorkData> }) {
             🟩 {result}
           </Text>
         ))}
-      </VStack>
+      </VStack> */}
     </VStack>
   );
 }

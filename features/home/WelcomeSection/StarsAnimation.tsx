@@ -19,19 +19,19 @@ export function StarsAnimation({
     from: { rotate: 0 },
     to: { rotate: 360 },
     loop: true,
-    config: { duration: 40000 },
+    config: { duration: 50000 },
   });
   const whiteStarRotation = useSpring({
     from: { rotate: 270 },
     to: { rotate: 360 + 270 },
     loop: true,
-    config: { duration: 45000 },
+    config: { duration: 65000 },
   });
   const blueRotation = useSpring({
     from: { rotate: 180 },
     to: { rotate: 360 + 180 },
     loop: true,
-    config: { duration: 50000 },
+    config: { duration: 70000 },
   });
 
   return (

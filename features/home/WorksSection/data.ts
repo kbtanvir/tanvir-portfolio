@@ -10,34 +10,38 @@ export type IWorkData = {
   pageUrl?: string;
   skills: string[];
 };
+/* 
+ 
+Lead-X (Digital Marketing Website)
 
+Challenges:
+
+Dynamic Content Management: How can Lead-X allow clients to easily update and manage their content without requiring technical expertise?
+Lead Generation Optimization: How can the website be optimized to capture more leads and improve conversion rates?
+Data Analytics and Reporting: How can Lead-X provide clients with valuable data and insights about their website traffic and lead generation efforts?
+Solutions:
+
+Content Management System (CMS): Integrate a user-friendly CMS that allows clients to edit and publish content without coding knowledge.
+A/B Testing: Implement A/B testing to compare different website elements and landing pages to identify the most effective designs for lead generation.
+Analytics and Reporting Dashboard: Develop a dashboard that provides clients with real-time data on website traffic, lead conversions, and marketing campaign performance.
+Home Finder (Real Estate Platform)
+
+Challenges:
+
+Virtual Tours and Property Showcasing: How can Home Finder provide potential buyers with immersive virtual tours and property showcasing experiences?
+AI-powered Matching: How can the platform use AI to match users with their ideal properties based on their preferences and search criteria?
+Market Trend Analysis and Insights: How can Home Finder offer users valuable insights and data about market trends and property valuations?
+Solutions:
+
+360° Virtual Tours: Integrate support for 360° virtual tours that allow users to explore properties remotely and get a realistic feel for the space.
+AI-powered Matching Algorithm: Develop an AI-powered matching algorithm that analyzes user preferences, search behavior, and property listings to recommend the most suitable options.
+Market Data Integration: Partner with real estate data providers to offer users insights on market trends, pricing data, and property valuations within specific locations.
+*/
 export const worksData: IWorkData[] = [
-  {
-    id: 5,
-    title: "E-Shopper",
-    overview: "Ecommerce template called eshopper ",
-    results: [],
-    "challenges": [
-      "Creating a seamless user experience with a visually appealing UI that effectively showcases products and categories.",
-      "Addressing performance issues such as slow loading times and image optimization to ensure a smooth browsing experience.",
-      "Implementing a robust navigation system that simplifies product discovery and encourages exploration.",
-      "Managing the daunting task of redesigning and recreating over 200 pages with consistent design and content.",
-    ],
-    "solution": [
-      "Crafted a modern and visually stunning UI that highlights products and categories, enhancing the overall user experience.",
-      "Implemented performance optimizations, including image compression and lazy loading, to significantly improve page loading times.",
-      "Revamped the navigation architecture with intuitive menus and search functionality, facilitating seamless product discovery.",
-      "Employed efficient content creation workflows and automation tools to streamline the recreation of over 200 pages, ensuring consistency and quality.",
-    ],
-    imageURL: "eshopper.png",
-    liveUrl: "https://eshopper-xi.vercel.app",
-    skills: ["Next.js", "Typescript", "Tailwind CSS", "MySQL"],
-  },
   {
     id: 1,
     title: "Autroworld",
-    overview:
-      "A client with 80 product images listed in a Google sheet was struggling with product placement and the creation of 30 pages on their website, while also facing issues with website speed. I  provided a solution by creating a data structure of fixed positions of products from images, along with reusable templates for page creation, and moving the website to NEXT JS with optimized images",
+    overview: " ",
     results: [
       "The data structure were made easily accessible for the client and developers",
       "Development time was reduced by 40%",
@@ -56,65 +60,89 @@ export const worksData: IWorkData[] = [
 
     imageURL: "autroworld.png",
     liveUrl: "https://autroworld.com/",
-    skills: ["React", "Next.js", "SCSS", "Data Structure", "Vercel"],
+    skills: ["Next.js", "SCSS", "DSA"],
+  },
+  {
+    id: 5,
+    title: "E-Shopper",
+    overview: "",
+    results: [],
+    "challenges": [
+      "Personalization: How can we recommend fruits to users based on their purchase history and preferences?",
+      "Inventory Management: How can we ensure real-time stock availability and prevent overselling of perishable items?",
+      "Delivery Optimization: How can we optimize delivery routes to minimize costs and ensure fresh fruit arrives quickly?",
+    ],
+    "solution": [
+      "Recommendation Engine: Implement a recommendation engine that analyzes user data to suggest relevant fruits. This could involve collaborative filtering or content-based filtering techniques.",
+      "Real-time Inventory System: Integrate a real-time inventory system that updates stock levels automatically upon purchase. This can be achieved through API connections with warehouse management systems.",
+      "Route Optimization Algorithm: Utilize a route optimization algorithm that considers factors like distance, traffic patterns, and delivery time to create efficient delivery routes.",
+    ],
+    imageURL: "eshopper1.png",
+    liveUrl: "https://kbtanvir.vercel.app/sites/eshopper",
+    skills: ["Next.js", "Typescript", "Tailwind CSS", "PostgresQL", "Docker", "Prisma"],
   },
   {
     id: 4,
-    title: "Access Elevator",
-    overview:
-      "The Access Elevator website was slow and outdated, with a UI that did not make sense for showing categories, subcategories, and documentation PDFs. The navigation was hard to notice, and there was no proper way to showcase products to customers. Pages were loading slowly, and images needed to be optimized. There were over 200 pages that needed to be recreated. Our team provided a solution by creating a fast and user-friendly website that met all of the client's needs.",
+    title: "CRYPTIO",
+    overview: "",
     results: [],
     challenges: [
-      "The Access Elevator website was slow and outdated, with a UI that did not make sense for showing categories, subcategories, and documentation PDFs.",
-      "The navigation was hard to notice, and there was no proper way to showcase products to customers.",
-      "Pages were loading slowly, and images needed to be optimized.",
-      "There were over 200 pages that needed to be recreated.",
+      "Security: How can we ensure the highest level of security for user funds and transactions on the platform?",
+      "Scalability: How can the platform handle a large volume of users and transactions without compromising performance?",
+      "Compliance: How can Cryptio stay compliant with evolving regulations in the cryptocurrency market?",
     ],
     solution: [
-      "Redesigned the website from scratch, with a modern and responsive design.",
-      "Restructured the categories and subcategories to make it easy for customers to find the products they are looking for.",
-      "Added a dedicated section for documentation PDFs, making it easy for customers to access and download relevant information.",
-      "Improved the website navigation by making it more intuitive and user-friendly.",
-      "Implemented an optimized image loading strategy, reducing page loading times and improving overall performance.",
-      "Streamlined the content creation process and recreated over 200 pages with a consistent and cohesive design.",
+      "Multi-layered Security: Implement a multi-layered security approach that includes robust encryption, secure storage of user credentials, and regular penetration testing.",
+      "Microservices Architecture: Design the platform using a microservices architecture to ensure scalability and enable independent scaling of different functionalities.",
+      "Regulatory Compliance Framework: Develop a comprehensive regulatory compliance framework that monitors and adapts to changing regulations in the cryptocurrency space.",
     ],
-    imageURL: "accesselevator.png",
-    liveUrl: "https://www.allaboutaccess.com/",
-    skills: ["HTML", "CSS", "JavaScript", "WordPress", "Woocommerce"],
+    imageURL: "crypto.png",
+    liveUrl: "https://kbtanvir.vercel.app/sites/crypto",
+    skills: ["Next.js", "Typescript", "Tailwind CSS", "Docker"],
   },
   {
     id: 2,
-    title: "Flexistore",
-    overview:
-      "Our client, a leading global warehousing company, approached us with a unique challenge. They wanted to integrate an external global warehouse API into their existing WordPress website to showcase their storage facilities in a single listing UI with search capabilities. However, the API job was not straightforward, as there were multiple APIs for managing store locations, rooms, facilities, and discount codes, all linked to one another with a one-to-many relation.",
-    results: [
-      // "The custom API reduced complexity and increased efficiency, potentially leading to a 30% reduction in management time and costs.",
-      // "The use of shortcodes saved time and improved website navigation, potentially increasing user satisfaction by 20-25%.",
-      // "The multilingual translation feature expanded the company's reach to non-English speaking audiences, potentially increasing sales and revenue by 15-20%.",
-      // "The location-finding function improved the user experience and provided relevant information to potential customers, potentially increasing conversion rates by 10-15%.",
-    ],
+    title: "Home Finder",
+    overview: " ",
+    results: [],
     challenges: [
-      "The company wanted to integrate an external global warehouse API into its WordPress website to showcase its storage facilities in a single listing UI with search capabilities.",
-      "There are multiple APIs for managing store locations, rooms, facilities, and discount codes that are linked to one another with a one-to-many relation, making it challenging to integrate them into the website.",
-      "The text generated by the API needs to be translated into three different languages, which can be time-consuming and complicated.",
-      "The company wants to display the two nearest storage locations based on user location data, which requires a location-finding function to be implemented.",
+      "Virtual Tours and Property Showcasing: How can Home Finder provide potential buyers with immersive virtual tours and property showcasing experiences?",
+      "AI-powered Matching: How can the platform use AI to match users with their ideal properties based on their preferences and search criteria?",
+      "Market Trend Analysis and Insights: How can Home Finder offer users valuable insights and data about market trends and property valuations?",
     ],
     solution: [
-      "To integrate the external global warehouse API into the WordPress website, I merged the multiple APIs into one custom API and created a UI with Vue JS.",
-      "Created a list of page URLs and used regex to filter API locations without updating page URLs",
-      "Filtered items on matching pages, creating shortcodes, saving time and improving website navigation.",
-      "Translated the API-generated text into three different languages, using the TranslatePress plugin to make the process easier and faster.",
-      "Implemented a location-finding algorithm that retrieves coordinates from the API.",
+      "360° Virtual Tours: Integrate support for 360° virtual tours that allow users to explore properties remotely and get a realistic feel for the space.",
+      "AI-powered Matching Algorithm: Develop an AI-powered matching algorithm that analyzes user preferences, search behavior, and property listings to recommend the most suitable options.",
+      "Market Data Integration: Partner with real estate data providers to offer users insights on market trends, pricing data, and property valuations within specific locations.",
     ],
-    imageURL: "flexistore.png",
-    liveUrl: "https://www.flexistore.no/minilager/oslo/ensjo/",
-    skills: ["Vue.js", "SCSS", "REST API", "CI/CD", "WordPress"],
+    imageURL: "property.png",
+    liveUrl: "https://kbtanvir.vercel.app/sites/real-estate/",
+    skills: ["Next.js", "Typescript", "Tailwind CSS", "PostgresQL", "Docker"],
+  },
+  {
+    id: 1,
+    title: "LEAD-X",
+    overview: " ",
+    results: [],
+    challenges: [
+      "Dynamic Content Management: How can Lead-X allow clients to easily update and manage their content without requiring technical expertise?",
+      "Lead Generation Optimization: How can the website be optimized to capture more leads and improve conversion rates?",
+      "Data Analytics and Reporting: How can Lead-X provide clients with valuable data and insights about their website traffic and lead generation efforts?",
+    ],
+    solution: [
+      "Content Management System (CMS): Integrate a user-friendly CMS that allows clients to edit and publish content without coding knowledge.",
+      "A/B Testing: Implement A/B testing to compare different website elements and landing pages to identify the most effective designs for lead generation.",
+      "Analytics and Reporting Dashboard: Develop a dashboard that provides clients with real-time data on website traffic, lead conversions, and marketing campaign performance.",
+    ],
+
+    imageURL: "agency.png",
+    liveUrl: "https://kbtanvir.vercel.app/sites/agency/",
+    skills: ["Next.js", "Typescript", "Tailwind CSS", "PostgresQL", "Docker"],
   },
   {
     id: 3,
     title: "Bakala Kuwait",
-    overview:
-      "The Bakala Kuwait Delivery Service project involved developing a cross-platform application for IOS, Android, and the web with no authentication. The UI needed to be designed with children in mind, while still providing the ability to track orders, checkout with previous credentials, and integrate QR codes. Our team provided a solution by creating a fast and user-friendly application that met all of the client's needs.",
+    overview: " ",
     results: [],
     challenges: [
       "Creating a cross-platform application for IOS, Android, and the web with no authentication",

@@ -11,7 +11,16 @@ export function TextField({ field }: { field: FormField<any> }) {
       type={field.type}
       name={field.name as string}
       placeholder={t(field.placeholder ?? "")}
-      
+      _focus={{
+        backgroundColor: "transparent !important",
+      }}
+      _focusVisible={{
+        backgroundColor: "transparent",
+      }}
+      _focusWithin={{
+        backgroundColor: "transparent",
+      }}
+      backgroundColor={"transparent"}
       defaultValue={formService.watch(field.name as any)}
       onChange={e => {
         formService.setValue(field.name as any, e.target.value);

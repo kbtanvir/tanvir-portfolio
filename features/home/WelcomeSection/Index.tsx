@@ -35,31 +35,54 @@ export default function WelcomeSection() {
 function MoonAnimation() {
   const { scrollYProgress } = useScroll();
   return (
-    <animated.div
-      style={{
-        translateY: scrollYProgress.to([0, 1], [0, 600]),
-        right: "0",
-        position: "absolute",
+    <Box
+      position={"absolute"}
+      pr={[0, "20"]}
+      pb={[200, "20"]}
+      alignItems={{
+        base: "center",
+        md: "end",
       }}
+      justifyContent={{
+        base: "center",
+        md: "end",
+      }}
+      width={"100%"}
+      display={"flex"}
     >
-      <MagnetWrapper>
-        <Stack
-          position="relative"
-          width={[70, "220px"]}
-          height={[70, "220px"]}
-          zIndex={1}
-          bottom={{
-            base: "-15vh",
-            lg: "10vh",
-          }}
-          right={{
-            base: "10vw",
-          }}
-        >
-          <Image src="/welcome/moon.svg" layout="fill" alt="moon" />
-        </Stack>
-      </MagnetWrapper>
-    </animated.div>
+      <animated.div
+        style={{
+          translateY: scrollYProgress.to([0, 1], [0, 600]),
+        }}
+      >
+        <MagnetWrapper>
+          <Stack
+            position="relative"
+            width={[280, "420px"]}
+            height={[280, "420px"]}
+            borderRadius={"100%"}
+            overflow={"hidden"}
+            zIndex={1}
+            transform={"scaleX(-1)"}
+            border={"10px solid #1c1c32"}
+            bottom={
+              {
+                // lg: "5vh",
+                // base:'15vh'
+              }
+            }
+            right={
+              {
+                // lg: "10vw",
+                // base: "0",
+              }
+            }
+          >
+            <Image src="/me.jpg" layout="fill" alt="moon" />
+          </Stack>
+        </MagnetWrapper>
+      </animated.div>
+    </Box>
   );
 }
 
