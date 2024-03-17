@@ -16,7 +16,8 @@ import { AiOutlineLink } from "react-icons/ai";
 import { CoolText } from "../../../lib/atoms/CoolText/CoolText";
 import { CustomDrawer } from "../../../lib/atoms/Drawer/CustomDrawer";
 import { useScrollTo } from "../../../lib/hooks/useScrollTo";
-import { StarsAnimation } from "../WelcomeSection/StarsAnimation";
+
+import { StarsAnimation } from "../WelcomeSection/Index";
 import { IWorkData, worksData } from "./data";
 import { piStyle, styles } from "./styles";
 

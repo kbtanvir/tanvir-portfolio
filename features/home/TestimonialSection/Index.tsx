@@ -2,7 +2,7 @@ import { Box, Grid, Text, VStack } from "@chakra-ui/react";
 import { animated, useScroll } from "@react-spring/web";
 import Image from "next/image";
 import { CoolText } from "../../../lib/atoms/CoolText/CoolText";
-import { StarsAnimation } from "../WelcomeSection/StarsAnimation";
+import { StarsAnimation } from "../WelcomeSection/Index";
 import { ITestimonial, testimonialData } from "./data";
 import { styles } from "./styles";
 
@@ -61,11 +61,7 @@ function TestimonialItem({ data }: { data: Partial<ITestimonial> }) {
         />
       </Box>
       <VStack {...styles.textWrap}>
-        <Text
-          {...styles.testimonialText}
-        >
-          {data.text}
-        </Text>
+        <Text {...styles.testimonialText}>{data.text}</Text>
         <Text
           {...{
             fontSize: "14px",

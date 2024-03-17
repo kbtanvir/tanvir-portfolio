@@ -6,6 +6,7 @@ import CTASection from "../features/home/CTASection/Index";
 import SkillSection from "../features/home/SkillSection/Index";
 import TestimonialSection from "../features/home/TestimonialSection/Index";
 import WelcomeSection from "../features/home/WelcomeSection/Index";
+
 import WorksSection from "../features/home/WorksSection/Index";
 
 export default function Index() {
