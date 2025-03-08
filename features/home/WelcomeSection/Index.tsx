@@ -11,9 +11,9 @@ export default function Index() {
     <VStack
       as={motion.div}
       initial={{
-        background: "linear-gradient(180deg, #000000 41.15%, #000000 100%);",
+        background: "linear-gradient(180deg, #000000 41.15%, #000000 100%)",
       }}
-      bg="linear-gradient(180deg, #0C0D0F 41.15%, #205B6D 100%);"
+      bg="linear-gradient(180deg, #0C0D0F 41.15%, #205B6D 100%)"
       w="full"
       minH="100vh"
       justifyContent={"center"}

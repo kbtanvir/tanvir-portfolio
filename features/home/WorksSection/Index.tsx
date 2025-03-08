@@ -237,7 +237,7 @@ function SingleItemModal({ item }: { item: Partial<IWorkData> }) {
         {item.overview}
       </Text>
       {/* RESULTS */}
-      {/* {item.results!.length > 0 && (
+      {item.results!.length > 0 && (
         <>
           <Text color="white" fontSize={"24px"}>
             Results
@@ -251,9 +251,9 @@ function SingleItemModal({ item }: { item: Partial<IWorkData> }) {
             ))}
           </VStack>
         </>
-      )} */}
+      )}
       {/* Challenges */}
-      {/* {item.challenges!.length > 0 && (
+      {item.challenges!.length > 0 && (
         <>
           <Text color="white" fontSize={"24px"}>
             Challenges
@@ -267,9 +267,9 @@ function SingleItemModal({ item }: { item: Partial<IWorkData> }) {
             ))}
           </VStack>
         </>
-      )} */}
+      )}
       {/* RESULTS */}
-      {/* <Text color="white" fontSize={"24px"}>
+      <Text color="white" fontSize={"24px"}>
         Solutions
       </Text>
       <Box bg="#FFD12D" h="3px" border={"none"} w="100px" mb="10px" />
@@ -279,7 +279,7 @@ function SingleItemModal({ item }: { item: Partial<IWorkData> }) {
             🟩 {result}
           </Text>
         ))}
-      </VStack> */}
+      </VStack>
     </VStack>
   );
 }

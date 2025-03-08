@@ -22,15 +22,15 @@ export default function AboutSection1() {
           }}
         >
           <Text {...styles.aboutText}>
-            Throughout my career, I`ve devoted considerable effort to
-            transforming designs into applications and websites that are
-            <span>
-              precise, high-performing, easily accessible, and responsive
-            </span>
-            . I find the entire development process captivating and frequently
-            involve myself in backend work. My passion for ambitious projects
-            and positivity drives me, and I thrive in a collaborative and
-            supportive work environment.
+            With <strong>6+ years of experience</strong> as a{" "}
+            <strong>full-stack developer</strong>, I specialize in building
+            scalable and efficient web applications using{" "}
+            <strong>Node.js</strong> and <strong>Python</strong>. Working
+            remotely from <strong>Bangladesh</strong>, I have collaborated with
+            global teams to deliver high-quality solutions that meet both
+            technical and business needs. I am passionate about creating{" "}
+            <span>clean, maintainable, and responsive applications</span> that
+            prioritize accessibility and user experience.
           </Text>
         </animated.div>
       </Stack>

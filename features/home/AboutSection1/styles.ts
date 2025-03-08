@@ -26,6 +26,59 @@ export const styles = {
     position: "relative",
   },
   aboutText: commonStyle.aboutText,
+  section: {
+    marginBottom: "40px",
+    padding: "20px",
+    // backgroundColor: "#fff",
+    borderRadius: "8px",
+    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+  },
+  heading: {
+    fontSize: {
+      base: "24px !important",
+      md: "28px !important",
+    },
+    color: "#2c3e50",
+    marginBottom: "20px",
+    borderBottom: "2px solid #3498db",
+    display: "inline-block",
+    paddingBottom: "5px",
+  },
+  paragraph: {
+    fontSize: {
+      base: "16px !important",
+      md: "18px !important",
+    },
+    color: "#555",
+    marginBottom: "15px",
+    "& strong": {
+      color: "#2c3e50",
+    },
+  },
+  skillsList: {
+    listStyleType: "none",
+    padding: "0",
+    "& li": {
+      fontSize: {
+        base: "16px !important",
+        md: "18px !important",
+      },
+      color: "#555",
+      marginBottom: "10px",
+      paddingLeft: "20px",
+      position: "relative",
+      "&::before": {
+        content: '"▹"',
+        position: "absolute",
+        left: "0",
+        color: "#3498db",
+        fontSize: "14px",
+      },
+      "& strong": {
+        color: "#2c3e50",
+      },
+    },
+  },
   imageWrapper: {
     position: "relative",
     placeItems: "end",

@@ -1,12 +1,11 @@
 import { Button, Text, VStack } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useMutation } from "@tanstack/react-query";
-import { httpsCallable } from "firebase/functions";
+import axios from "axios";
 import { FormProvider, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import * as yup from "yup";
 import { FormFieldHandler } from "../../../lib/atoms/Form/FormFieldHandler";
-import { functions } from "../../../lib/configs/firebase.config";
 import { FormField } from "../../../lib/hooks/useHookForm";
 import { notify } from "../../../lib/utils/helper";
 import { styles } from "./styles";
@@ -21,23 +20,20 @@ type IformData = {
 export default function CTAForm() {
   const { t } = useTranslation();
 
-  const formMutation = useMutation(
-    (dto: Partial<IformData>) => sendEmail(dto),
-    {
-      onSuccess() {
-        notify({
-          message: t("Form submitted successfully"),
-          type: "success",
-        });
-      },
-      onError() {
-        notify({
-          message: t("Form submission failed"),
-          type: "error",
-        });
-      },
-    }
-  );
+  const formMutation = useMutation((dto: IformData) => sendEmail(dto), {
+    onSuccess() {
+      notify({
+        message: t("Form submitted successfully"),
+        type: "success",
+      });
+    },
+    onError() {
+      notify({
+        message: t("Form submission failed"),
+        type: "error",
+      });
+    },
+  });
 
   // const defaultValues = useMemo(() => {
   //   return {
@@ -47,7 +43,7 @@ export default function CTAForm() {
 
   // * FORM FIELDS
 
-  const formFields: FormField<Partial<IformData>>[][] = [
+  const formFields: FormField<IformData>[][] = [
     // STEP 1
     [
       {
@@ -93,7 +89,7 @@ export default function CTAForm() {
 
   // * FORM SERVICE
 
-  const formService = useForm<Partial<IformData>>({
+  const formService = useForm<IformData>({
     mode: "onChange",
     resolver: yupResolver(
       yup.object(
@@ -107,28 +103,73 @@ export default function CTAForm() {
     ),
   });
 
-  const sendEmail = async (dto: Partial<IformData>) => {
-    const addMessage = httpsCallable(functions, "addMessage");
-    addMessage(dto)
-      .then(result => {
-        console.log(result);
-      })
-      .catch(error => {
-        const code = error.code;
-        const message = error.message;
-        const details = error.details;
-        console.log(code, message, details);
-        throw { code, message, details };
-      });
-  };
+  const sendEmail = async (dto: IformData) => {
+    const brevoApiKey = process.env.NEXT_PUBLIC_BREEVO_KEY; // Ensure this is set in your environment
+    const toEmail = process.env.NEXT_PUBLIC_APP_EMAIL; // Ensure this is set in your environment
 
-  function onSubmit(dto: Partial<IformData>) {
+    if (!brevoApiKey || !toEmail) {
+      throw new Error("Brevo API key or recipient email is missing.");
+    }
+
+    const emailData = {
+      sender: {
+        name: dto.name,
+        email: "hello@kbtanvir.dev",
+      },
+      to: [
+        {
+          email: "hello@kbtanvir.dev",
+          name: "Bashar Tanvir",
+        },
+      ],
+      subject: `Enquiry from Portfolio Website - #${dto.subject}`,
+      htmlContent: `
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <meta charset="UTF-8">
+          </head>
+          <body>
+            <h1>Enquiry from Portfolio Website</h1>
+            <p>Here are the details of your submission:</p>
+            <ul>
+              <li>Name: ${dto.name}</li>
+              <li>Subject: ${dto.subject}</li>
+              <li>Email: ${dto.email}</li>
+              <li>Message: ${dto.message}</li>
+            </ul>
+            <p>Thank you for considering our services.</p>
+          </body>
+        </html>
+      `,
+    };
+
+    try {
+      const response = await axios.post(
+        "https://api.brevo.com/v3/smtp/email",
+        emailData,
+        {
+          headers: {
+            "accept": "application/json",
+            "api-key": brevoApiKey,
+            "content-type": "application/json",
+          },
+        }
+      );
+
+      console.log("Email sent successfully:", response.data);
+      return response.data;
+    } catch (error: any) {
+      console.error(
+        "Error sending email:",
+        error.response?.data || error.message
+      );
+      throw new Error("Failed to send email");
+    }
+  };
+  function onSubmit(dto: IformData) {
     formMutation.mutate(dto);
   }
-
-  // useEffect(() => {
-  //   if (item) return formService.reset(item);
-  // }, [defaultValues, formService, item]);
 
   // * HANDLERS
   // -------------

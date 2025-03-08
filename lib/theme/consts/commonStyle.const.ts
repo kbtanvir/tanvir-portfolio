@@ -48,6 +48,17 @@ export const commonStyle = {
         // lineHeight: "7",
         pl: "2",
       },
+      "& strong": {
+        color: "#FFD12D",
+        fontSize: {
+          base: "20px !important",
+          md: "30px !important",
+          // xl: "35px !important",
+        },
+        // lineHeight: "7",
+        pl: "2",
+      },
     },
   },
+ 
 };

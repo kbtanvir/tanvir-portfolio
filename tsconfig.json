@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -22,7 +26,10 @@
     "**/*.tsx",
     "lib/atoms/Table/CustomTable.tsx",
     "lib/atoms/Table/ExcelExportButton.tsx",
-    "lib/cuberto/magnetic.js"
-, "lib/utils/gtag.js"  ],
-  "exclude": ["node_modules"]
+    "lib/cuberto/magnetic.js",
+    "lib/utils/gtag.js"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

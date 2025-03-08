@@ -13,7 +13,7 @@ const defaultOptions = {
   },
 };
 
-export function Preloader({ children }: { children: any }) {
+export default function Preloader({ children }: { children: any }) {
   const [isLoading, setisLoading] = useState(true);
 
   useEffect(() => {
@@ -56,7 +56,7 @@ function LoadingScreen() {
         isStopped={false}
         isPaused={false}
         {...{
-          speed: 5,
+          speed: 2,
         }}
       />
     </Center>

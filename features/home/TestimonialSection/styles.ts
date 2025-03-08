@@ -10,7 +10,7 @@ export const styles = {
       base: "100px",
       md: "140px",
     },
-    bg: "linear-gradient(180deg, #212530 0%, #000000 27.6%, #13161C 78.12%, #212530 100%);",
+    bg: "linear-gradient(180deg, #212530 0%, #000000 27.6%, #13161C 78.12%, #212530 100%)",
     px: {
       base: 6,
       md: 10,

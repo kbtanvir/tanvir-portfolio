@@ -1,4 +1,4 @@
-import { Grid, HStack, Stack, Text } from "@chakra-ui/react";
+import { Grid, Stack, Text } from "@chakra-ui/react";
 import { animated, useScroll } from "@react-spring/web";
 import Image from "next/image";
 import { styles } from "./styles";
@@ -27,12 +27,14 @@ export default function AboutSection2() {
         <Stack {...styles.textWrapper}>
           <Text {...styles.aboutText}>
             I believe that our creations and our craftsmanship reflect our
-            identity and values. Thats why I always aim to deliver Perfection in
-            everything I do. Whether it`s writing clean and scalable code that
-            can stand the test of time, or using the most efficient algorithms
-            to ensure optimal performance because Speed is king, I take pride in
-            my work and strive to improve myself constantly. I love what I do
-            and I hope it shows in my results.
+            identity and values. That`s why I always aim to deliver{" "}
+            <strong>Perfection</strong> in everything I do. Whether it`s writing{" "}
+            <strong>clean and scalable code</strong> that can stand the test of
+            time, or using the most <strong>efficient algorithms</strong>
+            to ensure <strong>optimal performance</strong> because{" "}
+            <strong>Speed is king</strong>, I take pride in my work and strive
+            to improve myself constantly. I love what I do and I hope it shows
+            in my results.
           </Text>
         </Stack>
       </animated.div>
