@@ -54,7 +54,7 @@ function Footer() {
           },
           {
             text: "Resume",
-            link: "https://blackbilled.notion.site/blackbilled/K-B-TANVIR-ad61fcbbc218474786f7e63533c1888d",
+            link: "https://www.canva.com/design/DAGhUZ3aVhI/XjpyEs-dANOTGYumOvcsqg/view?utm_content=DAGhUZ3aVhI&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h45979f95a8",
           },
         ].map((item, i) => (
           <Link key={i} href={item.link} target="_blank">
